@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EF582C7-E9C6-4DEE-981F-A3FDA2214A60}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>POS</RootNamespace>
+    <AssemblyName>POS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Oskr_\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>79BF1049211BAFD72671464E30F4CDCBDB5AA1F7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alerts\Default.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerts\Default.Designer.cs">
+      <DependentUpon>Default.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alerts\Success.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerts\Success.Designer.cs">
+      <DependentUpon>Success.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\APERTURA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CAJA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CATEGORIA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CIERRE.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\DETALLE_MOVIMIENTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\DETALLE_VENTA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Modelo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Modelo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\Modelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modelo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\MOVIMIENTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PRODUCTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\PROMOCION.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ROL.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\SESION.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\USUARIO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\VENTA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Controlador\aperturaController.cs" />
+    <Compile Include="Entidades\Controlador\cajaController.cs" />
+    <Compile Include="Entidades\Controlador\categoriaController.cs" />
+    <Compile Include="Entidades\Controlador\detalleMovimiento.cs" />
+    <Compile Include="Entidades\Controlador\productoController.cs" />
+    <Compile Include="Entidades\Controlador\promocionController.cs" />
+    <Compile Include="Entidades\Modelo\aperturaModel.cs" />
+    <Compile Include="Entidades\Modelo\productoModel.cs" />
+    <Compile Include="Entidades\Controlador\movimientoController.cs" />
+    <Compile Include="Entidades\Vista\wndProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entidades\Vista\wndProducto.Designer.cs">
+      <DependentUpon>wndProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Controlador\sesion.cs" />
+    <Compile Include="Login\Controlador\usuarioController.cs" />
+    <Compile Include="Login\Vista\wndLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Vista\wndLogin.Designer.cs">
+      <DependentUpon>wndLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades\respuesta.cs" />
+    <Compile Include="Utilidades\Utils.cs" />
+    <Compile Include="Ventas\Controlador\detalleVentaController.cs" />
+    <Compile Include="Ventas\Controlador\ventaController.cs" />
+    <Compile Include="Ventas\Modelo\ventaModel.cs" />
+    <Compile Include="Ventas\Vista\wndAbrirCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndAbrirCaja.Designer.cs">
+      <DependentUpon>wndAbrirCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndAnularProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndAnularProducto.Designer.cs">
+      <DependentUpon>wndAnularProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndCierreDeCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndCierreDeCaja.Designer.cs">
+      <DependentUpon>wndCierreDeCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndConfirmarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndConfirmarVenta.Designer.cs">
+      <DependentUpon>wndConfirmarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMontoEfectivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMontoEfectivo.Designer.cs">
+      <DependentUpon>wndMontoEfectivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndOperaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndOperaciones.Designer.cs">
+      <DependentUpon>wndOperaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndPromociones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndPromociones.Designer.cs">
+      <DependentUpon>wndPromociones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndVentas.Designer.cs">
+      <DependentUpon>wndVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Alerts\Default.resx">
+      <DependentUpon>Default.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alerts\Success.resx">
+      <DependentUpon>Success.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\Vista\wndProducto.resx">
+      <DependentUpon>wndProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Vista\wndLogin.resx">
+      <DependentUpon>wndLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Ventas\Vista\wndAbrirCaja.resx">
+      <DependentUpon>wndAbrirCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndAnularProducto.resx">
+      <DependentUpon>wndAnularProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndCierreDeCaja.resx">
+      <DependentUpon>wndCierreDeCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndConfirmarVenta.resx">
+      <DependentUpon>wndConfirmarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndMontoEfectivo.resx">
+      <DependentUpon>wndMontoEfectivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndOperaciones.resx">
+      <DependentUpon>wndOperaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndPromociones.resx">
+      <DependentUpon>wndPromociones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndVentas.resx">
+      <DependentUpon>wndVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DBModel\Modelo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Modelo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DBModel\Modelo.edmx.diagram">
+      <DependentUpon>Modelo.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Login\Modelo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBModel\Modelo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Modelo.edmx</DependentUpon>
+      <LastGenOutput>Modelo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel\Modelo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Modelo.edmx</DependentUpon>
+      <LastGenOutput>Modelo.cs</LastGenOutput>
+    </Content>
+    <Content Include="Public\Images\actualizar.png" />
+    <Content Include="Public\Images\Alert.png" />
+    <Content Include="Public\Images\anadir.png" />
+    <Content Include="Public\Images\buscar.png" />
+    <Content Include="Public\Images\carro.png" />
+    <Content Include="Public\Images\Cart.png" />
+    <Content Include="Public\Images\cerrar.png" />
+    <Content Include="Public\Images\dejar.png" />
+    <Content Include="Public\Images\dinero.png" />
+    <Content Include="Public\Images\eliminar.png" />
+    <Content Include="Public\Images\encontrar %281%29.png" />
+    <Content Include="Public\Images\encontrar.png" />
+    <Content Include="Public\Images\formar.png" />
+    <Content Include="Public\Images\garrapata %281%29.png" />
+    <Content Include="Public\Images\garrapata %282%29.png" />
+    <Content Include="Public\Images\garrapata %283%29.png" />
+    <Content Include="Public\Images\garrapata.png" />
+    <Content Include="Public\Images\impresion.png" />
+    <Content Include="Public\Images\lapiz.png" />
+    <Content Include="Public\Images\okmontos.png" />
+    <Content Include="Public\Images\pagar.png" />
+    <Content Include="Public\Images\report.png" />
+    <Content Include="Public\Images\save-file.png" />
+    <Content Include="Public\Images\Success Alert %282%29.png" />
+    <Content Include="Public\Images\tarjeta-de-credito.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
