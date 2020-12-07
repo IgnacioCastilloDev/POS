@@ -13,7 +13,7 @@ namespace POS.Ventas.Controlador
     class ventaController
     {
 
-        public respuesta agregar(DateTime _fecha, int _apertura,int _subTotalDebito,int _subTotalCredito,int? _totalVenta)
+        public respuesta agregar(DateTime _fecha, int _apertura,int _subTotalDebito,int _subTotalCredito,int? _totalVenta,int _fk_idMetodoDePago)
         {
             respuesta r;
             try
@@ -25,6 +25,7 @@ namespace POS.Ventas.Controlador
                         VENTA obj = new VENTA();
                         obj.fecha = _fecha;
                         obj.fk_id_apertura =_apertura;
+                        obj.fk_id_metodoPago = _fk_idMetodoDePago;
                         obj.total_venta = _totalVenta;
                         obj.subtotal_debito = _subTotalDebito;
                         obj.subtotal_credito = _subTotalCredito;

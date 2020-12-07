@@ -120,6 +120,9 @@
     <Compile Include="DBModel\DETALLE_VENTA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\METODO_PAGO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\Modelo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +211,24 @@
     <Compile Include="Ventas\Vista\wndConfirmarVenta.Designer.cs">
       <DependentUpon>wndConfirmarVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ventas\Vista\wndMetodoDePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMetodoDePago.Designer.cs">
+      <DependentUpon>wndMetodoDePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMontoCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMontoCredito.Designer.cs">
+      <DependentUpon>wndMontoCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMontoDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\Vista\wndMontoDebito.Designer.cs">
+      <DependentUpon>wndMontoDebito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventas\Vista\wndMontoEfectivo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +288,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Vista\wndConfirmarVenta.resx">
       <DependentUpon>wndConfirmarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndMetodoDePago.resx">
+      <DependentUpon>wndMetodoDePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndMontoCredito.resx">
+      <DependentUpon>wndMontoCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\Vista\wndMontoDebito.resx">
+      <DependentUpon>wndMontoDebito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Vista\wndMontoEfectivo.resx">
       <DependentUpon>wndMontoEfectivo.cs</DependentUpon>

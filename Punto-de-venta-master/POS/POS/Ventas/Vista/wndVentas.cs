@@ -30,6 +30,8 @@ namespace POS.Ventas.Vista
         public static string _codigoBarraAnular =null;
         public  string _efectivoCancelado = null;
         public string _idCajaAsignada = null;
+        public int metodoDePago ;
+        
       
         public wndVentas()
         {
@@ -140,7 +142,7 @@ namespace POS.Ventas.Vista
 
                                             dgvData.Rows[rowIndex].Cells["subtotal"].Value = ajusteSencillo(calcularDescuento(Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value), Convert.ToInt32(condicion), Convert.ToInt32(descuento),
                                                 Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value), Convert.ToInt32(producto.precio), Convert.ToInt32(numericCantidad.Value)));
-                                           
+                                            
                                         }
                                         else
                                         {
@@ -165,6 +167,7 @@ namespace POS.Ventas.Vista
                             }
                             else
                             {
+                              
                                 dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))));
                             }                         
                         //Utils.reproducirBeep();
@@ -178,9 +181,11 @@ namespace POS.Ventas.Vista
                             int descuentoAlSubTotal = Convert.ToInt32(subtotal * descuento) / 100;
                             int subtotalConDescuento = subtotal - descuentoAlSubTotal;
                             dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo(subtotalConDescuento));
+                            seleccionarMetodoPago();
                         }
                         else 
                         {
+                            
                             dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))));
                         }
                         
@@ -204,11 +209,58 @@ namespace POS.Ventas.Vista
             
 
         }
+
+
+        void seleccionarMetodoPago()
+        {
+            MessageBox.Show("Seleccione el metodo de pago");
+            wndMetodoDePago wnd = new wndMetodoDePago();
+            wnd.ShowDialog();
+
+            switch (wnd.metodoDePago)
+            {
+                case 1:
+                    lblMetodoDePago.Text = "Efectivo";
+                    btnEfectivo.Visible = true;
+                    lblEfectivo.Visible = true;
+                    metodoDePago = wnd.metodoDePago;
+                    lblMetodoDePago.Refresh();
+                    break;
+                case 2:
+                    lblMetodoDePago.Text = "Tarjeta Debito";
+                    btnDebito.Visible = true;
+                    lblDebito.Visible = true;
+                    metodoDePago = wnd.metodoDePago;
+                    lblMetodoDePago.Refresh();
+                    break;
+                case 3:
+                    lblMetodoDePago.Text = "Tarjeta Credito";
+                    lblCredito.Visible = true;
+                    metodoDePago = wnd.metodoDePago;
+                    btnCredito.Visible = true;
+                    lblMetodoDePago.Refresh();
+                    break;
+
+            }
+        }
+
+        void resetMetodoPago()
+        {
+            btnEfectivo.Visible = false;
+            lblEfectivo.Visible = false;
+            btnDebito.Visible = false;
+            lblDebito.Visible = false;
+            lblCredito.Visible = false;
+            btnCredito.Visible = false;
+            lblMetodoDePago.Text = "--Ninguno--";
+
+        }
         void reset()
         {
             numericCantidad.Value = 1;
             txtCodigoBarra.Text = "";
-        
+            
+
         }
      
         public void actualizarCabeceraVenta()
@@ -239,12 +291,21 @@ namespace POS.Ventas.Vista
         {
             lblTime.Text = DateTime.Now.ToString();
         }
+
+
+
+        void  ButtonsMetodoPago()
+        {
+
+        }
         private void wndVentas_Load(object sender, EventArgs e)
         {
 
             StartTimer();
             btnConfirmarVenta.Enabled = false;
-            btnEfectivo.Enabled = false;
+            btnEfectivo.Enabled = true;
+            btnCredito.Enabled = true;
+            btnDebito.Enabled = true;
             lblCajero.Text = sesion.nombreUsuario;
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -378,6 +439,11 @@ namespace POS.Ventas.Vista
         private void dgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             calcularTotal();
+
+            if (dgvData.Rows.Count > 0)
+            {
+                resetMetodoPago();
+            }
         }
         private void dgvData_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -407,9 +473,12 @@ namespace POS.Ventas.Vista
                 traerXCodigoDeBarra();
             }
         }
-
+        
+      
         private void btnEfectivo_Click(object sender, EventArgs e)
-        {      
+        {
+            
+            
             wndMontoEfectivo wnde = new wndMontoEfectivo();
             wnde.ShowDialog();
 
@@ -417,18 +486,16 @@ namespace POS.Ventas.Vista
             {
                 _efectivoCancelado = wnde.efectivoCancelado;
                 lblMontoCancelado.Text = Convert.ToInt32(wnde.efectivoCancelado).ToString("#,##0").Replace(",", ".");
-
                 _efectivoCancelado = null;
             }
             txtCodigoBarra.Focus();
-
-
+            
             //else
             //{
             //    int totalMontoCancelado = Convert.ToInt32(lblMontoCancelado.Text) + Convert.ToInt32(wnde.efectivoCancelado);
             //    lblMontoCancelado.Text = Convert.ToString(totalMontoCancelado);
             //}
-            
+
         }
 
         private void wndVentas_Shown(object sender, EventArgs e)
@@ -512,6 +579,7 @@ namespace POS.Ventas.Vista
             lblMontoCancelado.Text = "0";
             lblVuelto.Text = "0";
             dgvData.Rows.Clear();
+            resetMetodoPago();
         }
 
         private void numericCantidad_Enter(object sender, EventArgs e)
@@ -525,7 +593,9 @@ namespace POS.Ventas.Vista
 
         private void btnConfirmarVenta_Click(object sender, EventArgs e)
         {
+            
 
+            ///FALTA MANDAR EL METODO DE PAGO OBLIGATORIO
             if(dgvData.Rows.Count >0)
             {
             wndConfirmarVenta wConfirmarVenta = new wndConfirmarVenta();
@@ -537,7 +607,7 @@ namespace POS.Ventas.Vista
             ventaController vc = new ventaController();
             Boolean ventaStatus = false;
             detalleVentaController dvc = new detalleVentaController();
-            rVenta = vc.agregar(DateTime.Now,Convert.ToInt32(lblId.Text),0,0,Convert.ToInt32(lblTotal.Text.Replace(".", "")));
+            rVenta = vc.agregar(DateTime.Now,Convert.ToInt32(lblId.Text),0,0,Convert.ToInt32(lblTotal.Text.Replace(".", "")),metodoDePago);
             if (rVenta.status)
             {
                 VENTA ventaHecha = (VENTA)rVenta.Data;
@@ -576,6 +646,7 @@ namespace POS.Ventas.Vista
                 wConfirmarVenta.confirmo = false;
             }
             }
+            
 
         }
 
@@ -683,6 +754,11 @@ namespace POS.Ventas.Vista
             }
             
             
+        }
+
+        private void rToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

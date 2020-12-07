@@ -4,20 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="174c68cb26544391b7c9458413c2ba63" Name="Diagram1">
-        <EntityTypeShape EntityType="negocioModel.APERTURA" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.CAJA" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.CATEGORIA" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.CIERRE" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.DETALLE_MOVIMIENTO" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.DETALLE_VENTA" Width="1.5" PointX="9.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.MOVIMIENTO" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.PRODUCTO" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.PROMOCION" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.ROL" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.SESION" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.USUARIO" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="negocioModel.VENTA" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+      <Diagram DiagramId="0df6525bae194fe9a241115005a9b226" Name="Diagram1">
+        <EntityTypeShape EntityType="negocioModel.APERTURA" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.CAJA" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.CATEGORIA" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.CIERRE" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.DETALLE_MOVIMIENTO" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.DETALLE_VENTA" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.METODO_PAGO" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.MOVIMIENTO" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.PRODUCTO" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.PROMOCION" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.ROL" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.SESION" Width="1.5" PointX="9.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.USUARIO" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="negocioModel.VENTA" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="negocioModel.fk_APERTURA_CAJA" ManuallyRouted="false" />
         <AssociationConnector Association="negocioModel.fk_APERTURA_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="negocioModel.fk_CIERRE_APERTURA" ManuallyRouted="false" />
@@ -27,6 +28,7 @@
         <AssociationConnector Association="negocioModel.fk_DETALLE_MOVIMIENTO_MOVIMIENTO" ManuallyRouted="false" />
         <AssociationConnector Association="negocioModel.fk_DETALLE_VENTA_PRODUCTO" ManuallyRouted="false" />
         <AssociationConnector Association="negocioModel.fk_DETALLE_VENTA_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="negocioModel.fk_VENTA_METODO_PAGO" ManuallyRouted="false" />
         <AssociationConnector Association="negocioModel.fk_USUARIO_ROL" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

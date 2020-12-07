@@ -63,6 +63,13 @@
           <Property Name="subtotal" Type="int" />
           <Property Name="fk_venta" Type="bigint" />
         </EntityType>
+        <EntityType Name="METODO_PAGO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="MOVIMIENTO">
           <Key>
             <PropertyRef Name="id" />
@@ -129,6 +136,7 @@
           <Property Name="total_venta" Type="int" />
           <Property Name="subtotal_debito" Type="int" />
           <Property Name="subtotal_credito" Type="int" />
+          <Property Name="fk_id_metodoPago" Type="int" />
         </EntityType>
         <Association Name="fk_APERTURA_CAJA">
           <End Role="CAJA" Type="Self.CAJA" Multiplicity="0..1" />
@@ -250,6 +258,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_VENTA_METODO_PAGO">
+          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="0..1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="METODO_PAGO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="fk_id_metodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="negocioModelStoreContainer">
           <EntitySet Name="APERTURA" EntityType="Self.APERTURA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CAJA" EntityType="Self.CAJA" Schema="dbo" store:Type="Tables" />
@@ -257,6 +277,7 @@
           <EntitySet Name="CIERRE" EntityType="Self.CIERRE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLE_MOVIMIENTO" EntityType="Self.DETALLE_MOVIMIENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MOVIMIENTO" EntityType="Self.MOVIMIENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" Schema="dbo" store:Type="Tables" />
@@ -302,6 +323,10 @@
           </AssociationSet>
           <AssociationSet Name="fk_VENTA_APERTURA" Association="Self.fk_VENTA_APERTURA">
             <End Role="APERTURA" EntitySet="APERTURA" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_VENTA_METODO_PAGO" Association="Self.fk_VENTA_METODO_PAGO">
+            <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
             <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
         </EntityContainer>
@@ -380,6 +405,14 @@
           <NavigationProperty Name="PRODUCTO" Relationship="Self.fk_DETALLE_VENTA_PRODUCTO" FromRole="DETALLE_VENTA" ToRole="PRODUCTO" />
           <NavigationProperty Name="VENTA" Relationship="Self.fk_DETALLE_VENTA_VENTA" FromRole="DETALLE_VENTA" ToRole="VENTA" />
         </EntityType>
+        <EntityType Name="METODO_PAGO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VENTA" Relationship="Self.fk_VENTA_METODO_PAGO" FromRole="METODO_PAGO" ToRole="VENTA" />
+        </EntityType>
         <EntityType Name="MOVIMIENTO">
           <Key>
             <PropertyRef Name="id" />
@@ -452,8 +485,10 @@
           <Property Name="total_venta" Type="Int32" />
           <Property Name="subtotal_debito" Type="Int32" />
           <Property Name="subtotal_credito" Type="Int32" />
+          <Property Name="fk_id_metodoPago" Type="Int32" />
           <NavigationProperty Name="APERTURA" Relationship="Self.fk_VENTA_APERTURA" FromRole="VENTA" ToRole="APERTURA" />
           <NavigationProperty Name="DETALLE_VENTA" Relationship="Self.fk_DETALLE_VENTA_VENTA" FromRole="VENTA" ToRole="DETALLE_VENTA" />
+          <NavigationProperty Name="METODO_PAGO" Relationship="Self.fk_VENTA_METODO_PAGO" FromRole="VENTA" ToRole="METODO_PAGO" />
         </EntityType>
         <Association Name="fk_APERTURA_CAJA">
           <End Role="CAJA" Type="Self.CAJA" Multiplicity="0..1" />
@@ -563,6 +598,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_VENTA_METODO_PAGO">
+          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="0..1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="METODO_PAGO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="fk_id_metodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_USUARIO_ROL">
           <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -582,6 +629,7 @@
           <EntitySet Name="CIERRE" EntityType="Self.CIERRE" />
           <EntitySet Name="DETALLE_MOVIMIENTO" EntityType="Self.DETALLE_MOVIMIENTO" />
           <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" />
+          <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" />
           <EntitySet Name="MOVIMIENTO" EntityType="Self.MOVIMIENTO" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
           <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" />
@@ -624,6 +672,10 @@
           <AssociationSet Name="fk_DETALLE_VENTA_VENTA" Association="Self.fk_DETALLE_VENTA_VENTA">
             <End Role="VENTA" EntitySet="VENTA" />
             <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_VENTA_METODO_PAGO" Association="Self.fk_VENTA_METODO_PAGO">
+            <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+            <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
           <AssociationSet Name="fk_USUARIO_ROL" Association="Self.fk_USUARIO_ROL">
             <End Role="ROL" EntitySet="ROL" />
@@ -700,6 +752,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="METODO_PAGO">
+            <EntityTypeMapping TypeName="negocioModel.METODO_PAGO">
+              <MappingFragment StoreEntitySet="METODO_PAGO">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="MOVIMIENTO">
             <EntityTypeMapping TypeName="negocioModel.MOVIMIENTO">
               <MappingFragment StoreEntitySet="MOVIMIENTO">
@@ -771,6 +831,7 @@
                 <ScalarProperty Name="total_venta" ColumnName="total_venta" />
                 <ScalarProperty Name="subtotal_debito" ColumnName="subtotal_debito" />
                 <ScalarProperty Name="subtotal_credito" ColumnName="subtotal_credito" />
+                <ScalarProperty Name="fk_id_metodoPago" ColumnName="fk_id_metodoPago" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
