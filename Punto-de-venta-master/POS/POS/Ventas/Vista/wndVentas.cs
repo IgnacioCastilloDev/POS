@@ -85,14 +85,20 @@ namespace POS.Ventas.Vista
 
         void traerXCodigoDeBarra()
         {
+            
+
             if (lblId.Text != "")
             {
                 productoController pc = new productoController();
                 PRODUCTO producto;
                 respuesta r;
-                r = pc.buscarXCodigoDeBarra(txtCodigoBarra.Text.Replace(" ", ""));           
+                r = pc.buscarXCodigoDeBarra(txtCodigoBarra.Text.Replace(" ", ""));
                 if (r.status)
                 {
+                    if (metodoDePago == 0)
+                    {
+                        seleccionarMetodoPago();
+                    }
 
                     dgvData.AutoGenerateColumns = false;
                     producto = (PRODUCTO)r.Data;
@@ -172,8 +178,8 @@ namespace POS.Ventas.Vista
                     }
                     else
                     {
-
                         if (numericCantidad.Value >= condicion)
+
                         {
                             int subtotal = Convert.ToInt32(producto.precio * numericCantidad.Value);
                             int descuentoAlSubTotal = Convert.ToInt32(subtotal * descuento) / 100;
@@ -205,7 +211,7 @@ namespace POS.Ventas.Vista
         }
         void seleccionarMetodoPago()
         {
-            MessageBox.Show("Seleccione el metodo de pago");
+           
             wndMetodoDePago wnd = new wndMetodoDePago();
             wnd.ShowDialog();
 
@@ -357,16 +363,10 @@ namespace POS.Ventas.Vista
             }
         }
 
-
-
-
-
         public void cambiar()
         {
             lblMontoCancelado.Text = "1";
         }
-
-
 
         private void wndVentas_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -576,7 +576,9 @@ namespace POS.Ventas.Vista
             }
             else
             {
-                btnConfirmarVenta.Enabled = false;
+
+                if (metodoDePago == 1) { btnConfirmarVenta.Enabled = false; }
+
             }
         }
 
@@ -627,7 +629,7 @@ namespace POS.Ventas.Vista
                     ventaController vc = new ventaController();
                     Boolean ventaStatus = false;
                     detalleVentaController dvc = new detalleVentaController();
-                    rVenta = vc.agregar(DateTime.Now, Convert.ToInt32(lblId.Text), 0, 0, Convert.ToInt32(lblTotal.Text.Replace(".", "")), metodoDePago);
+                    rVenta = vc.agregar(DateTime.Now, Convert.ToInt32(lblId.Text), 0, 0, Convert.ToInt32(lblTotal.Text.Replace(".", "")), metodoDePago,Convert.ToInt32(cbTipoDocumento.SelectedValue));
                     if (rVenta.status)
                     {
                         VENTA ventaHecha = (VENTA)rVenta.Data;
@@ -802,6 +804,32 @@ namespace POS.Ventas.Vista
         private void lblMetodoDePago_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvData_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    DataGridViewCell clickedCell = (sender as DataGridView).Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                    // Here you can do whatever you want with the cell
+                    this.dgvData.CurrentCell = clickedCell;  // Select the clicked cell, for instance
+
+                    // Get mouse position relative to the vehicles grid
+                    var relativeMousePosition = dgvData.PointToClient(Cursor.Position);
+
+                    // Show the context menu
+                    this.cmsEliminar.Show(dgvData, relativeMousePosition);
+                   
+                }
+            }
+        }
+
+        private void cmsEliminar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            MessageBox.Show("asdasd");
         }
     }
 }

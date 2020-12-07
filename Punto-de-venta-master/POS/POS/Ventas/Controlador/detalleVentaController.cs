@@ -25,6 +25,7 @@ namespace POS.Ventas.Controlador
                         obj.cantidad = _cantidad;
                         obj.subtotal = _subtotal;
                         obj.fk_venta = _idVenta;
+                       
                         db.DETALLE_VENTA.Add(obj);
                         int afected = db.SaveChanges();
                         DETALLE_VENTA detalle_venta = (DETALLE_VENTA)obj;
