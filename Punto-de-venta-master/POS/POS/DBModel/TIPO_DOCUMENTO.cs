@@ -12,27 +12,18 @@ namespace POS.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class VENTA
+    public partial class TIPO_DOCUMENTO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VENTA()
+        public TIPO_DOCUMENTO()
         {
-            this.DETALLE_VENTA = new HashSet<DETALLE_VENTA>();
+            this.VENTA = new HashSet<VENTA>();
         }
     
-        public long id { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
-        public int fk_id_apertura { get; set; }
-        public Nullable<int> total_venta { get; set; }
-        public Nullable<int> subtotal_debito { get; set; }
-        public Nullable<int> subtotal_credito { get; set; }
-        public int fk_id_metodoPago { get; set; }
-        public Nullable<int> fk_id_tipo_documento { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
     
-        public virtual APERTURA APERTURA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_VENTA> DETALLE_VENTA { get; set; }
-        public virtual METODO_PAGO METODO_PAGO { get; set; }
-        public virtual TIPO_DOCUMENTO TIPO_DOCUMENTO { get; set; }
+        public virtual ICollection<VENTA> VENTA { get; set; }
     }
 }

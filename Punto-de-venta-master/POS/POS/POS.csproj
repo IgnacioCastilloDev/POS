@@ -153,6 +153,9 @@
     <Compile Include="DBModel\SESION.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\TIPO_DOCUMENTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\USUARIO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -185,6 +188,7 @@
     <Compile Include="Utilidades\respuesta.cs" />
     <Compile Include="Utilidades\Utils.cs" />
     <Compile Include="Ventas\Controlador\detalleVentaController.cs" />
+    <Compile Include="Ventas\Controlador\tipoDocumentoController.cs" />
     <Compile Include="Ventas\Controlador\ventaController.cs" />
     <Compile Include="Ventas\Modelo\ventaModel.cs" />
     <Compile Include="Ventas\Vista\wndAbrirCaja.cs">

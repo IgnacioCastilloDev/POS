@@ -32,7 +32,7 @@ namespace POS.Ventas.Vista
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wndMontoCredito));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtEfectivo = new System.Windows.Forms.TextBox();
+            this.txtCredito = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -58,15 +58,16 @@ namespace POS.Ventas.Vista
             this.label1.TabIndex = 47;
             this.label1.Text = "Monto Tarjeta Credito";
             // 
-            // txtEfectivo
+            // txtCredito
             // 
-            this.txtEfectivo.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEfectivo.Location = new System.Drawing.Point(131, 63);
-            this.txtEfectivo.MaxLength = 6;
-            this.txtEfectivo.Name = "txtEfectivo";
-            this.txtEfectivo.Size = new System.Drawing.Size(195, 41);
-            this.txtEfectivo.TabIndex = 46;
-            this.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCredito.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCredito.Location = new System.Drawing.Point(131, 63);
+            this.txtCredito.MaxLength = 6;
+            this.txtCredito.Name = "txtCredito";
+            this.txtCredito.Size = new System.Drawing.Size(195, 41);
+            this.txtCredito.TabIndex = 46;
+            this.txtCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEfectivo_KeyPress);
             // 
             // btnOk
             // 
@@ -86,8 +87,9 @@ namespace POS.Ventas.Vista
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtEfectivo);
+            this.Controls.Add(this.txtCredito);
             this.Name = "wndMontoCredito";
+            this.Load += new System.EventHandler(this.wndMontoCredito_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,6 +100,6 @@ namespace POS.Ventas.Vista
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEfectivo;
+        private System.Windows.Forms.TextBox txtCredito;
     }
 }

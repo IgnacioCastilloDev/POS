@@ -12,6 +12,7 @@ namespace POS.Ventas.Vista
 {
     public partial class wndMontoDebito : Form
     {
+        public string debitoCancelado = "0";
         public wndMontoDebito()
         {
             InitializeComponent();
@@ -20,6 +21,33 @@ namespace POS.Ventas.Vista
         private void wndMontoDebito_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void ingresarMonto()
+        {
+            if (txtDebito.Text == "")
+            {
+                debitoCancelado = "0";
+                this.Close();
+            }
+            else
+            {
+                debitoCancelado = txtDebito.Text;
+                this.Close();
+            }
+
+        }
+
+        private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == (char)Keys.Enter))
+            {
+                ingresarMonto();
+            }
         }
     }
 }

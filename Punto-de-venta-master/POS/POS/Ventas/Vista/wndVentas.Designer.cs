@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wndVentas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -59,14 +59,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promocionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvData = new System.Windows.Forms.DataGridView();
@@ -90,14 +86,11 @@
             this.lblCredito = new System.Windows.Forms.Label();
             this.lblDebito = new System.Windows.Forms.Label();
             this.lblEfectivo = new System.Windows.Forms.Label();
-            this.btnCredito = new System.Windows.Forms.Button();
-            this.btnDebito = new System.Windows.Forms.Button();
-            this.btnEfectivo = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.lblVentaActual = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbCaja = new System.Windows.Forms.ComboBox();
+            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -106,7 +99,14 @@
             this.button6 = new System.Windows.Forms.Button();
             this.btnConfirmarVenta = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnCredito = new System.Windows.Forms.Button();
+            this.btnDebito = new System.Windows.Forms.Button();
+            this.btnEfectivo = new System.Windows.Forms.Button();
             this.btnAnularProducto = new System.Windows.Forms.Button();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -284,12 +284,6 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Stretch = false;
             // 
-            // opcionesToolStripMenuItem
-            // 
-            resources.ApplyResources(this.opcionesToolStripMenuItem, "opcionesToolStripMenuItem");
-            this.opcionesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            // 
             // dToolStripMenuItem
             // 
             this.dToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -318,28 +312,6 @@
             resources.ApplyResources(this.operacionesToolStripMenuItem, "operacionesToolStripMenuItem");
             this.operacionesToolStripMenuItem.Click += new System.EventHandler(this.operacionesToolStripMenuItem_Click);
             // 
-            // rToolStripMenuItem
-            // 
-            resources.ApplyResources(this.rToolStripMenuItem, "rToolStripMenuItem");
-            this.rToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rToolStripMenuItem.Name = "rToolStripMenuItem";
-            this.rToolStripMenuItem.Click += new System.EventHandler(this.rToolStripMenuItem_Click);
-            // 
-            // mantenedoresToolStripMenuItem
-            // 
-            this.mantenedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productosToolStripMenuItem});
-            resources.ApplyResources(this.mantenedoresToolStripMenuItem, "mantenedoresToolStripMenuItem");
-            this.mantenedoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.mantenedoresToolStripMenuItem.Name = "mantenedoresToolStripMenuItem";
-            this.mantenedoresToolStripMenuItem.Click += new System.EventHandler(this.mantenedoresToolStripMenuItem_Click);
-            // 
-            // productosToolStripMenuItem
-            // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
-            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
-            // 
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -359,14 +331,14 @@
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             resources.ApplyResources(this.dgvData, "dgvData");
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -378,14 +350,14 @@
             this.cantidad,
             this.subtotal,
             this.precioDescuento});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvData.EnableHeadersVisualStyles = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersVisible = false;
@@ -394,6 +366,7 @@
             this.dgvData.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellEndEdit);
             this.dgvData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellValueChanged);
             this.dgvData.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvData_RowsAdded);
+            this.dgvData.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvData_RowsRemoved);
             // 
             // id
             // 
@@ -420,8 +393,8 @@
             // stock
             // 
             this.stock.DataPropertyName = "stock";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.stock.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.stock.DefaultCellStyle = dataGridViewCellStyle8;
             resources.ApplyResources(this.stock, "stock");
             this.stock.Name = "stock";
             this.stock.ReadOnly = true;
@@ -429,18 +402,18 @@
             // precio
             // 
             this.precio.DataPropertyName = "precio";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N0";
-            dataGridViewCellStyle15.NullValue = null;
-            this.precio.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            this.precio.DefaultCellStyle = dataGridViewCellStyle9;
             resources.ApplyResources(this.precio, "precio");
             this.precio.Name = "precio";
             // 
             // cantidad
             // 
             this.cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cantidad.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cantidad.DefaultCellStyle = dataGridViewCellStyle10;
             resources.ApplyResources(this.cantidad, "cantidad");
             this.cantidad.Name = "cantidad";
             this.cantidad.ReadOnly = true;
@@ -448,10 +421,10 @@
             // subtotal
             // 
             this.subtotal.DataPropertyName = "subtotal";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N0";
-            dataGridViewCellStyle17.NullValue = "1";
-            this.subtotal.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N0";
+            dataGridViewCellStyle11.NullValue = "1";
+            this.subtotal.DefaultCellStyle = dataGridViewCellStyle11;
             resources.ApplyResources(this.subtotal, "subtotal");
             this.subtotal.Name = "subtotal";
             this.subtotal.ReadOnly = true;
@@ -555,29 +528,6 @@
             this.lblEfectivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblEfectivo.Name = "lblEfectivo";
             // 
-            // btnCredito
-            // 
-            this.btnCredito.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnCredito, "btnCredito");
-            this.btnCredito.Name = "btnCredito";
-            this.btnCredito.UseVisualStyleBackColor = false;
-            // 
-            // btnDebito
-            // 
-            this.btnDebito.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnDebito, "btnDebito");
-            this.btnDebito.Name = "btnDebito";
-            this.btnDebito.UseVisualStyleBackColor = false;
-            this.btnDebito.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnEfectivo
-            // 
-            this.btnEfectivo.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnEfectivo, "btnEfectivo");
-            this.btnEfectivo.Name = "btnEfectivo";
-            this.btnEfectivo.UseVisualStyleBackColor = false;
-            this.btnEfectivo.Click += new System.EventHandler(this.btnEfectivo_Click);
-            // 
             // label15
             // 
             resources.ApplyResources(this.label15, "label15");
@@ -604,12 +554,12 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // cbCaja
+            // cbTipoDocumento
             // 
-            this.cbCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cbCaja, "cbCaja");
-            this.cbCaja.FormattingEnabled = true;
-            this.cbCaja.Name = "cbCaja";
+            this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbTipoDocumento, "cbTipoDocumento");
+            this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Name = "cbTipoDocumento";
             // 
             // label23
             // 
@@ -641,6 +591,7 @@
             resources.ApplyResources(this.lblMetodoDePago, "lblMetodoDePago");
             this.lblMetodoDePago.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblMetodoDePago.Name = "lblMetodoDePago";
+            this.lblMetodoDePago.TextChanged += new System.EventHandler(this.lblMetodoDePago_TextChanged);
             // 
             // button6
             // 
@@ -665,12 +616,64 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnCredito
+            // 
+            this.btnCredito.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnCredito, "btnCredito");
+            this.btnCredito.Name = "btnCredito";
+            this.btnCredito.UseVisualStyleBackColor = false;
+            this.btnCredito.Click += new System.EventHandler(this.btnCredito_Click);
+            // 
+            // btnDebito
+            // 
+            this.btnDebito.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnDebito, "btnDebito");
+            this.btnDebito.Name = "btnDebito";
+            this.btnDebito.UseVisualStyleBackColor = false;
+            this.btnDebito.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnEfectivo
+            // 
+            this.btnEfectivo.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnEfectivo, "btnEfectivo");
+            this.btnEfectivo.Name = "btnEfectivo";
+            this.btnEfectivo.UseVisualStyleBackColor = false;
+            this.btnEfectivo.Click += new System.EventHandler(this.btnEfectivo_Click);
+            // 
             // btnAnularProducto
             // 
             resources.ApplyResources(this.btnAnularProducto, "btnAnularProducto");
             this.btnAnularProducto.Name = "btnAnularProducto";
             this.btnAnularProducto.UseVisualStyleBackColor = true;
             this.btnAnularProducto.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.opcionesToolStripMenuItem, "opcionesToolStripMenuItem");
+            this.opcionesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            // 
+            // rToolStripMenuItem
+            // 
+            resources.ApplyResources(this.rToolStripMenuItem, "rToolStripMenuItem");
+            this.rToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rToolStripMenuItem.Name = "rToolStripMenuItem";
+            this.rToolStripMenuItem.Click += new System.EventHandler(this.rToolStripMenuItem_Click);
+            // 
+            // mantenedoresToolStripMenuItem
+            // 
+            this.mantenedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productosToolStripMenuItem});
+            resources.ApplyResources(this.mantenedoresToolStripMenuItem, "mantenedoresToolStripMenuItem");
+            this.mantenedoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mantenedoresToolStripMenuItem.Name = "mantenedoresToolStripMenuItem";
+            this.mantenedoresToolStripMenuItem.Click += new System.EventHandler(this.mantenedoresToolStripMenuItem_Click);
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // btnBuscar
             // 
@@ -690,7 +693,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.cbCaja);
+            this.Controls.Add(this.cbTipoDocumento);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
@@ -795,7 +798,7 @@
         private System.Windows.Forms.Label lblVentaActual;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripMenuItem cierreDeCajaToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbCaja;
+        private System.Windows.Forms.ComboBox cbTipoDocumento;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;

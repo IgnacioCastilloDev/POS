@@ -37,6 +37,7 @@ namespace POS.DBModel
         public virtual DbSet<PROMOCION> PROMOCION { get; set; }
         public virtual DbSet<ROL> ROL { get; set; }
         public virtual DbSet<SESION> SESION { get; set; }
+        public virtual DbSet<TIPO_DOCUMENTO> TIPO_DOCUMENTO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
         public virtual DbSet<VENTA> VENTA { get; set; }
     }

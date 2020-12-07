@@ -116,6 +116,13 @@
           <Property Name="fecha" Type="date" />
           <Property Name="fk_usuario" Type="int" />
         </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="USUARIO">
           <Key>
             <PropertyRef Name="id" />
@@ -132,11 +139,12 @@
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fecha" Type="date" />
-          <Property Name="fk_id_apertura" Type="int" />
+          <Property Name="fk_id_apertura" Type="int" Nullable="false" />
           <Property Name="total_venta" Type="int" />
           <Property Name="subtotal_debito" Type="int" />
           <Property Name="subtotal_credito" Type="int" />
-          <Property Name="fk_id_metodoPago" Type="int" />
+          <Property Name="fk_id_metodoPago" Type="int" Nullable="false" />
+          <Property Name="fk_id_tipo_documento" Type="int" />
         </EntityType>
         <Association Name="fk_APERTURA_CAJA">
           <End Role="CAJA" Type="Self.CAJA" Multiplicity="0..1" />
@@ -247,7 +255,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_VENTA_APERTURA">
-          <End Role="APERTURA" Type="Self.APERTURA" Multiplicity="0..1" />
+          <End Role="APERTURA" Type="Self.APERTURA" Multiplicity="1" />
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="APERTURA">
@@ -259,7 +267,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_VENTA_METODO_PAGO">
-          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="0..1" />
+          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="1" />
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="METODO_PAGO">
@@ -267,6 +275,18 @@
             </Principal>
             <Dependent Role="VENTA">
               <PropertyRef Name="fk_id_metodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_VENTA_TIPO_DOCUMENTO">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="fk_id_tipo_documento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -283,6 +303,7 @@
           <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SESION" EntityType="Self.SESION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_APERTURA_CAJA" Association="Self.fk_APERTURA_CAJA">
@@ -327,6 +348,10 @@
           </AssociationSet>
           <AssociationSet Name="fk_VENTA_METODO_PAGO" Association="Self.fk_VENTA_METODO_PAGO">
             <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="fk_VENTA_TIPO_DOCUMENTO" Association="Self.fk_VENTA_TIPO_DOCUMENTO">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
             <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
         </EntityContainer>
@@ -463,6 +488,14 @@
           <Property Name="fecha" Type="DateTime" Precision="0" />
           <Property Name="fk_usuario" Type="Int32" />
         </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VENTA" Relationship="Self.fk_VENTA_TIPO_DOCUMENTO" FromRole="TIPO_DOCUMENTO" ToRole="VENTA" />
+        </EntityType>
         <EntityType Name="USUARIO">
           <Key>
             <PropertyRef Name="id" />
@@ -481,14 +514,16 @@
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha" Type="DateTime" Precision="0" />
-          <Property Name="fk_id_apertura" Type="Int32" />
+          <Property Name="fk_id_apertura" Type="Int32" Nullable="false" />
           <Property Name="total_venta" Type="Int32" />
           <Property Name="subtotal_debito" Type="Int32" />
           <Property Name="subtotal_credito" Type="Int32" />
-          <Property Name="fk_id_metodoPago" Type="Int32" />
+          <Property Name="fk_id_metodoPago" Type="Int32" Nullable="false" />
+          <Property Name="fk_id_tipo_documento" Type="Int32" />
           <NavigationProperty Name="APERTURA" Relationship="Self.fk_VENTA_APERTURA" FromRole="VENTA" ToRole="APERTURA" />
           <NavigationProperty Name="DETALLE_VENTA" Relationship="Self.fk_DETALLE_VENTA_VENTA" FromRole="VENTA" ToRole="DETALLE_VENTA" />
           <NavigationProperty Name="METODO_PAGO" Relationship="Self.fk_VENTA_METODO_PAGO" FromRole="VENTA" ToRole="METODO_PAGO" />
+          <NavigationProperty Name="TIPO_DOCUMENTO" Relationship="Self.fk_VENTA_TIPO_DOCUMENTO" FromRole="VENTA" ToRole="TIPO_DOCUMENTO" />
         </EntityType>
         <Association Name="fk_APERTURA_CAJA">
           <End Role="CAJA" Type="Self.CAJA" Multiplicity="0..1" />
@@ -539,7 +574,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_VENTA_APERTURA">
-          <End Role="APERTURA" Type="Self.APERTURA" Multiplicity="0..1" />
+          <End Role="APERTURA" Type="Self.APERTURA" Multiplicity="1" />
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="APERTURA">
@@ -599,7 +634,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_VENTA_METODO_PAGO">
-          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="0..1" />
+          <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="1" />
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="METODO_PAGO">
@@ -622,6 +657,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_VENTA_TIPO_DOCUMENTO">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="fk_id_tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="negocioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="APERTURA" EntityType="Self.APERTURA" />
           <EntitySet Name="CAJA" EntityType="Self.CAJA" />
@@ -635,6 +682,7 @@
           <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" />
           <EntitySet Name="ROL" EntityType="Self.ROL" />
           <EntitySet Name="SESION" EntityType="Self.SESION" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
           <EntitySet Name="VENTA" EntityType="Self.VENTA" />
           <AssociationSet Name="fk_APERTURA_CAJA" Association="Self.fk_APERTURA_CAJA">
@@ -680,6 +728,10 @@
           <AssociationSet Name="fk_USUARIO_ROL" Association="Self.fk_USUARIO_ROL">
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_VENTA_TIPO_DOCUMENTO" Association="Self.fk_VENTA_TIPO_DOCUMENTO">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -811,6 +863,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_DOCUMENTO">
+            <EntityTypeMapping TypeName="negocioModel.TIPO_DOCUMENTO">
+              <MappingFragment StoreEntitySet="TIPO_DOCUMENTO">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="negocioModel.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
@@ -832,6 +892,7 @@
                 <ScalarProperty Name="subtotal_debito" ColumnName="subtotal_debito" />
                 <ScalarProperty Name="subtotal_credito" ColumnName="subtotal_credito" />
                 <ScalarProperty Name="fk_id_metodoPago" ColumnName="fk_id_metodoPago" />
+                <ScalarProperty Name="fk_id_tipo_documento" ColumnName="fk_id_tipo_documento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

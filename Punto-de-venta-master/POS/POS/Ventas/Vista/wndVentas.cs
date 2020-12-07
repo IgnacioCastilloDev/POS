@@ -26,81 +26,81 @@ namespace POS.Ventas.Vista
 {
     public partial class wndVentas : Form
     {
-        public static string _cantidadAnular =null;
-        public static string _codigoBarraAnular =null;
-        public  string _efectivoCancelado = null;
+        public static string _cantidadAnular = null;
+        public static string _codigoBarraAnular = null;
+        public string _efectivoCancelado = null;
         public string _idCajaAsignada = null;
-        public int metodoDePago ;
-        
-      
+        public int metodoDePago = 0;
+
+
         public wndVentas()
         {
             InitializeComponent();
 
-                 
+
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             traerXCodigoDeBarra();
         }
 
-        public int  ajusteSencillo(int subtotal)
+        public int ajusteSencillo(int subtotal)
         {
             int resultadoAjuste = 0;
             int ajuste = subtotal % 10;
-            if(ajuste >= 5)
+            if (ajuste >= 5)
             {
-                resultadoAjuste =  subtotal - ajuste+10;
+                resultadoAjuste = subtotal - ajuste + 10;
             }
             else
             {
-                 resultadoAjuste = subtotal - ajuste ;
+                resultadoAjuste = subtotal - ajuste;
             }
 
             return resultadoAjuste;
         }
 
-        public int calcularDescuento(int cantidad,int condicion, int descuento,int subtotal,int precio,int NumericCantidad)
+        public int calcularDescuento(int cantidad, int condicion, int descuento, int subtotal, int precio, int NumericCantidad)
         {
             int subtotalConDescuento = 0;
             int totalCorregido = 0;
-            if(cantidad >= condicion)
+            if (cantidad >= condicion)
             {
 
-                int resultadoSinDescuento =  precio * cantidad;
+                int resultadoSinDescuento = precio * cantidad;
                 int resultadoDescuento = (resultadoSinDescuento * descuento) / 100;
-                 subtotalConDescuento = resultadoSinDescuento - resultadoDescuento;
+                subtotalConDescuento = resultadoSinDescuento - resultadoDescuento;
                 totalCorregido = ajusteSencillo(subtotalConDescuento);
-    
+
             }
-                //int resultadoSinDescuento = Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value) + (Convert.ToInt32(producto.precio)
-                //                            * Convert.ToInt32(numericCantidad.Value));
-                //int resultadoDescuento = Convert.ToInt32(resultadoSinDescuento * descuento) / 100;
-                //int subtotalConDescuento = resultadoSinDescuento - resultadoDescuento;
-                //dgvData.Rows[rowIndex].Cells["subtotal"].Value = subtotalConDescuento;
-    
+            //int resultadoSinDescuento = Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value) + (Convert.ToInt32(producto.precio)
+            //                            * Convert.ToInt32(numericCantidad.Value));
+            //int resultadoDescuento = Convert.ToInt32(resultadoSinDescuento * descuento) / 100;
+            //int subtotalConDescuento = resultadoSinDescuento - resultadoDescuento;
+            //dgvData.Rows[rowIndex].Cells["subtotal"].Value = subtotalConDescuento;
+
             return totalCorregido;
         }
 
 
         void traerXCodigoDeBarra()
         {
-            if (lblId.Text != "") { 
-            productoController pc = new productoController();
-            PRODUCTO producto;
-            respuesta r;
-            r = pc.buscarXCodigoDeBarra(txtCodigoBarra.Text.Replace(" ",""));
-            if (r.status)
+            if (lblId.Text != "")
             {
-                dgvData.AutoGenerateColumns = false;
-                producto = (PRODUCTO)r.Data;
-                ArrayList listCodigos = new ArrayList();
-                Boolean existe = false;
-             
+                productoController pc = new productoController();
+                PRODUCTO producto;
+                respuesta r;
+                r = pc.buscarXCodigoDeBarra(txtCodigoBarra.Text.Replace(" ", ""));           
+                if (r.status)
+                {
+
+                    dgvData.AutoGenerateColumns = false;
+                    producto = (PRODUCTO)r.Data;
+                    ArrayList listCodigos = new ArrayList();
+                    Boolean existe = false;
                     //Consultar promocion
-                             
-                    int? condicion = producto.condicion;                   
-                    int?  descuento = producto.descuento;
+                    int? condicion = producto.condicion;
+                    int? descuento = producto.descuento;
 
                     //if (rPromocion.status)
                     //{
@@ -117,100 +117,92 @@ namespace POS.Ventas.Vista
 
                     int rowIndex = -1;
                     if (dgvData.RowCount > 0)
-                {
-                    for (int row = 0; row < dgvData.Rows.Count; row++)
                     {
-                        listCodigos.Add(dgvData.Rows[row].Cells["id"].Value.ToString());
-                    }
-                    for (int i = 0; i < listCodigos.Count; i++)
-                    {
-                        if (Convert.ToInt32(listCodigos[i]) == Convert.ToInt32(producto.id))
+                        for (int row = 0; row < dgvData.Rows.Count; row++)
                         {
-
-                            existe = true;
-                            string repetido = Convert.ToString(listCodigos[i]);
-                            
-                            foreach (DataGridViewRow row in dgvData.Rows)
+                            listCodigos.Add(dgvData.Rows[row].Cells["id"].Value.ToString());
+                        }
+                        for (int i = 0; i < listCodigos.Count; i++)
+                        {
+                            if (Convert.ToInt32(listCodigos[i]) == Convert.ToInt32(producto.id))
                             {
-                                if (row.Cells[0].Value.ToString().Equals(repetido))
+
+                                existe = true;
+                                string repetido = Convert.ToString(listCodigos[i]);
+
+                                foreach (DataGridViewRow row in dgvData.Rows)
                                 {
-                                    rowIndex = row.Index;
-                                      
-                                    dgvData.Rows[rowIndex].Cells["cantidad"].Value = Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) + numericCantidad.Value;
-                                        if (Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) >=condicion)
+                                    if (row.Cells[0].Value.ToString().Equals(repetido))
+                                    {
+                                        rowIndex = row.Index;
+                                        dgvData.Rows[rowIndex].Cells["cantidad"].Value = Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) + numericCantidad.Value;
+                                        if (Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) >= condicion)
                                         {
 
                                             dgvData.Rows[rowIndex].Cells["subtotal"].Value = ajusteSencillo(calcularDescuento(Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value), Convert.ToInt32(condicion), Convert.ToInt32(descuento),
                                                 Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value), Convert.ToInt32(producto.precio), Convert.ToInt32(numericCantidad.Value)));
-                                            
                                         }
                                         else
                                         {
                                             dgvData.Rows[rowIndex].Cells["subtotal"].Value = ajusteSencillo(Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value) + (Convert.ToInt32(producto.precio)
-                                                                                             * Convert.ToInt32(numericCantidad.Value)));                              
-                                        }                    
+                                                                                            * Convert.ToInt32(numericCantidad.Value)));
+                                        }
                                         break;
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (existe != true)
-                    {
-                          if(numericCantidad.Value >=condicion)
+                        if (existe != true)
+                        {
+                            if (numericCantidad.Value >= condicion)
                             {
                                 int subtotal = Convert.ToInt32(producto.precio * numericCantidad.Value);
                                 int descuentoAlSubTotal = Convert.ToInt32(subtotal * descuento) / 100;
                                 int subtotalConDescuento = subtotal - descuentoAlSubTotal;
                                 dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo(subtotalConDescuento));
-
-
                             }
                             else
                             {
-                              
+
                                 dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))));
-                            }                         
-                        //Utils.reproducirBeep();
+
+                            }
+                            //Utils.reproducirBeep();
+                        }
                     }
-                }
-                else
-                {
+                    else
+                    {
+
                         if (numericCantidad.Value >= condicion)
                         {
                             int subtotal = Convert.ToInt32(producto.precio * numericCantidad.Value);
                             int descuentoAlSubTotal = Convert.ToInt32(subtotal * descuento) / 100;
                             int subtotalConDescuento = subtotal - descuentoAlSubTotal;
                             dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo(subtotalConDescuento));
-                            seleccionarMetodoPago();
+                            //AQUI 
                         }
-                        else 
+                        else
                         {
-                            
+
                             dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))));
                         }
-                        
-                    //Utils.reproducirBeep();
-                }
+                    }
                     dgvData.Rows[0].Selected = false;
 
                 }
-            else
-            {
-                Default alerta = new Default("Codigo de barra no encontrado");
-                alerta.ShowDialog();
-            }
-            reset();
+                else
+                {
+                    Default alerta = new Default("Codigo de barra no encontrado");
+                    alerta.ShowDialog();
+                }
+                reset();
             }
             else
             {
                 Default alerta = new Default("Debe abrir una caja para poder hacer ventas");
                 alerta.ShowDialog();
             }
-            
-
         }
-
-
         void seleccionarMetodoPago()
         {
             MessageBox.Show("Seleccione el metodo de pago");
@@ -228,6 +220,7 @@ namespace POS.Ventas.Vista
                     break;
                 case 2:
                     lblMetodoDePago.Text = "Tarjeta Debito";
+                    btnConfirmarVenta.Enabled = true;
                     btnDebito.Visible = true;
                     lblDebito.Visible = true;
                     metodoDePago = wnd.metodoDePago;
@@ -236,7 +229,9 @@ namespace POS.Ventas.Vista
                 case 3:
                     lblMetodoDePago.Text = "Tarjeta Credito";
                     lblCredito.Visible = true;
+                    btnConfirmarVenta.Enabled = true;
                     metodoDePago = wnd.metodoDePago;
+
                     btnCredito.Visible = true;
                     lblMetodoDePago.Refresh();
                     break;
@@ -253,16 +248,17 @@ namespace POS.Ventas.Vista
             lblCredito.Visible = false;
             btnCredito.Visible = false;
             lblMetodoDePago.Text = "--Ninguno--";
+            btnConfirmarVenta.Enabled = false;
 
         }
         void reset()
         {
             numericCantidad.Value = 1;
             txtCodigoBarra.Text = "";
-            
+
 
         }
-     
+
         public void actualizarCabeceraVenta()
         {
             respuesta rVenta;
@@ -294,12 +290,22 @@ namespace POS.Ventas.Vista
 
 
 
-        void  ButtonsMetodoPago()
+        void refrescarComboMetodoPago()
         {
+            respuesta r;
+            tipoDocumentoController tdc = new tipoDocumentoController();
+
+            r = tdc.listarCategoriasXNombre();
+
+            cbTipoDocumento.DataSource = r.Data;
+            cbTipoDocumento.DisplayMember = "nombre";
+            cbTipoDocumento.ValueMember = "id";
 
         }
         private void wndVentas_Load(object sender, EventArgs e)
         {
+
+            refrescarComboMetodoPago();
 
             StartTimer();
             btnConfirmarVenta.Enabled = false;
@@ -317,7 +323,7 @@ namespace POS.Ventas.Vista
             verificarCaja();
         }
 
-        public  void verificarCaja()
+        public void verificarCaja()
         {
             respuesta rExisteCajaActiva;
             respuesta rApertura;
@@ -360,9 +366,9 @@ namespace POS.Ventas.Vista
             lblMontoCancelado.Text = "1";
         }
 
-      
 
-    private void wndVentas_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void wndVentas_KeyPress(object sender, KeyPressEventArgs e)
         {
         }
 
@@ -372,8 +378,8 @@ namespace POS.Ventas.Vista
             wndAnularProducto wap = new wndAnularProducto();
             wap.ShowDialog();
 
-            if (_codigoBarraAnular =="")
-            {      
+            if (_codigoBarraAnular == "")
+            {
             }
             else
             {
@@ -385,39 +391,40 @@ namespace POS.Ventas.Vista
                         if (rows.Cells[1].Value.ToString().Equals(_codigoBarraAnular))
                         {
                             codigoRepetido = rows.Index;
-                            int cantidad = Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value);                       
-                            if (Convert.ToInt32(_cantidadAnular) >  cantidad)
+                            int cantidad = Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value);
+                            if (Convert.ToInt32(_cantidadAnular) > cantidad)
                             {
 
                                 int subtotalDelAnulado = Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["subtotal"].Value);
                                 int totalActualizado = ajusteSencillo(Convert.ToInt32(lblTotal.Text.Replace(".", "")) - subtotalDelAnulado);
                                 lblTotal.Text = totalActualizado.ToString("#,##0").Replace(",", ".");
-                                dgvData.Rows.RemoveAt(codigoRepetido);                      
+                                dgvData.Rows.RemoveAt(codigoRepetido);
                             }
                             else
                             {
                                 dgvData.Rows[codigoRepetido].Cells["cantidad"].Value = cantidad - Convert.ToInt32(_cantidadAnular);
                                 dgvData.Rows[codigoRepetido].Cells["subtotal"].Value = ajusteSencillo(Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["precio"].Value) * Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value));
                             }
-                            if(Convert.ToInt32(_cantidadAnular) == cantidad)
+                            if (Convert.ToInt32(_cantidadAnular) == cantidad)
                             {
                                 dgvData.Rows.RemoveAt(codigoRepetido);
                             }
                             break;
                             //Hasta aqui estoy captando el dato codigo de barra que voy a eliminar 
-                        }              
-                    }             
+                        }
+                    }
                     _cantidadAnular = null;
                     _codigoBarraAnular = null;
-                }      
+                }
             }
             txtCodigoBarra.Focus();
         }
-        public static void anularProducto(string _codigo,string _cantidad) {
+        public static void anularProducto(string _codigo, string _cantidad)
+        {
 
             _codigoBarraAnular = _codigo;
             _cantidadAnular = _cantidad;
-           
+
         }
 
         void calcularTotal()
@@ -434,23 +441,23 @@ namespace POS.Ventas.Vista
         private void dgvData_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             calcularTotal();
-           
+
         }
         private void dgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             calcularTotal();
 
-            if (dgvData.Rows.Count > 0)
+            if (dgvData.Rows.Count <= 0)
             {
                 resetMetodoPago();
             }
         }
         private void dgvData_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-           
 
-          int resultado = Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["precio"].Value) * Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["cantidad"].Value);
-          dgvData.Rows[e.RowIndex].Cells["subtotal"].Value = resultado;
+
+            int resultado = Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["precio"].Value) * Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["cantidad"].Value);
+            dgvData.Rows[e.RowIndex].Cells["subtotal"].Value = resultado;
 
 
 
@@ -458,12 +465,12 @@ namespace POS.Ventas.Vista
 
         private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtCodigoBarra_KeyUp(object sender, KeyEventArgs e)
         {
-         
+
         }
 
         private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
@@ -473,12 +480,12 @@ namespace POS.Ventas.Vista
                 traerXCodigoDeBarra();
             }
         }
-        
-      
+
+
         private void btnEfectivo_Click(object sender, EventArgs e)
         {
-            
-            
+
+
             wndMontoEfectivo wnde = new wndMontoEfectivo();
             wnde.ShowDialog();
 
@@ -489,7 +496,7 @@ namespace POS.Ventas.Vista
                 _efectivoCancelado = null;
             }
             txtCodigoBarra.Focus();
-            
+
             //else
             //{
             //    int totalMontoCancelado = Convert.ToInt32(lblMontoCancelado.Text) + Convert.ToInt32(wnde.efectivoCancelado);
@@ -501,21 +508,21 @@ namespace POS.Ventas.Vista
         private void wndVentas_Shown(object sender, EventArgs e)
         {
             //MessageBox.Show(Convert.ToString("Bienvenido " + sesion.nombreUsuario));
-   
+
         }
 
-     
+
 
         private void groupBox5_Enter(object sender, EventArgs e)
         {
-            
+
         }
 
         private void lblMontoCancelado_TextChanged(object sender, EventArgs e)
         {
 
             ///AQUI HAY UN ERROR
-            
+
             if (Convert.ToInt32(lblMontoCancelado.Text.Replace(".", "")) > Convert.ToInt32(lblTotal.Text.Replace(".", "")))
             {
                 int vuelto = Convert.ToInt32(lblMontoCancelado.Text.Replace(".", "")) - Convert.ToInt32(lblTotal.Text.Replace(".", ""));
@@ -524,28 +531,28 @@ namespace POS.Ventas.Vista
             else
             {
                 lblVuelto.Text = "0";
-              
+
             }
             if (Convert.ToInt32(lblMontoCancelado.Text.Replace(".", "")) >= Convert.ToInt32(lblTotal.Text.Replace(".", "")))
             {
-               
+
                 btnConfirmarVenta.Enabled = true;
             }
             else
             {
                 btnConfirmarVenta.Enabled = false;
             }
-            
+
         }
 
         private void lblVuelto_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void lblTotal_TextChanged(object sender, EventArgs e)
         {
-             
+
 
             if (Convert.ToInt32(lblTotal.Text.Replace(".", "")) > 0)
             {
@@ -578,8 +585,11 @@ namespace POS.Ventas.Vista
             lblTotal.Text = "0";
             lblMontoCancelado.Text = "0";
             lblVuelto.Text = "0";
+            metodoDePago = 0;
+            cbTipoDocumento.SelectedValue = 1;
             dgvData.Rows.Clear();
             resetMetodoPago();
+
         }
 
         private void numericCantidad_Enter(object sender, EventArgs e)
@@ -589,64 +599,74 @@ namespace POS.Ventas.Vista
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+
+            txtCodigoBarra.Focus();
+
         }
 
         private void btnConfirmarVenta_Click(object sender, EventArgs e)
         {
-            
 
             ///FALTA MANDAR EL METODO DE PAGO OBLIGATORIO
-            if(dgvData.Rows.Count >0)
+            if (dgvData.Rows.Count > 0)
             {
-            wndConfirmarVenta wConfirmarVenta = new wndConfirmarVenta();
-            wConfirmarVenta.ShowDialog();
-            if (wConfirmarVenta.confirmo)
-            {
-            respuesta rDetalleVenta;
-            respuesta rVenta;
-            ventaController vc = new ventaController();
-            Boolean ventaStatus = false;
-            detalleVentaController dvc = new detalleVentaController();
-            rVenta = vc.agregar(DateTime.Now,Convert.ToInt32(lblId.Text),0,0,Convert.ToInt32(lblTotal.Text.Replace(".", "")),metodoDePago);
-            if (rVenta.status)
-            {
-                VENTA ventaHecha = (VENTA)rVenta.Data;
-                int i = 0;
-                foreach (DataGridViewRow rows in dgvData.Rows)
+
+                if (metodoDePago == 2 || metodoDePago == 3)
                 {
-                  long idProducto =  Convert.ToInt64(dgvData.Rows[i].Cells["id"].Value);
-                  int cantidad = Convert.ToInt32(dgvData.Rows[i].Cells["cantidad"].Value);
-                  int subtotal = Convert.ToInt32(dgvData.Rows[i].Cells["subtotal"].Value);
-                  rDetalleVenta = dvc.Agregar(idProducto,cantidad,subtotal,Convert.ToInt64(ventaHecha.id));
-                        if (rDetalleVenta.status)
-                        {
-
-                            productoController pc = new productoController();
-                            pc.updateStock(Convert.ToInt32(idProducto),cantidad);
 
 
-                            ventaStatus = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ocurrio un error");
-                        }
-                        i++;
-                    }
-                    if (ventaStatus)
+                }
+
+                wndConfirmarVenta wConfirmarVenta = new wndConfirmarVenta();
+                wConfirmarVenta.ShowDialog();
+                if (wConfirmarVenta.confirmo)
+                {
+                    respuesta rDetalleVenta;
+                    respuesta rVenta;
+                    ventaController vc = new ventaController();
+                    Boolean ventaStatus = false;
+                    detalleVentaController dvc = new detalleVentaController();
+                    rVenta = vc.agregar(DateTime.Now, Convert.ToInt32(lblId.Text), 0, 0, Convert.ToInt32(lblTotal.Text.Replace(".", "")), metodoDePago);
+                    if (rVenta.status)
                     {
-                        dgvData.Rows.Clear();
-                        dgvData.Refresh();
-                        Success success = new Success("La venta se realizo correctamente");
-                        success.ShowDialog();
+                        VENTA ventaHecha = (VENTA)rVenta.Data;
+                        int i = 0;
+                        foreach (DataGridViewRow rows in dgvData.Rows)
+                        {
+                            long idProducto = Convert.ToInt64(dgvData.Rows[i].Cells["id"].Value);
+                            int cantidad = Convert.ToInt32(dgvData.Rows[i].Cells["cantidad"].Value);
+                            int subtotal = Convert.ToInt32(dgvData.Rows[i].Cells["subtotal"].Value);
+                            rDetalleVenta = dvc.Agregar(idProducto, cantidad, subtotal, Convert.ToInt64(ventaHecha.id));
+                            if (rDetalleVenta.status)
+                            {
+
+                                productoController pc = new productoController();
+                                pc.updateStock(Convert.ToInt32(idProducto), cantidad);
+
+
+                                ventaStatus = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ocurrio un error");
+                            }
+                            i++;
+                        }
+                        if (ventaStatus)
+                        {
+                            dgvData.Rows.Clear();
+                            dgvData.Refresh();
+                            Success success = new Success("La venta se realizo correctamente");
+                            success.ShowDialog();
+                        }
+                        actualizarCabeceraVenta();
+                        //Capturar excepcion de el detalleVenta -- RESPUESTA
                     }
-                    actualizarCabeceraVenta();
-                    //Capturar excepcion de el detalleVenta -- RESPUESTA
+                    wConfirmarVenta.confirmo = false;
+                }
             }
-                wConfirmarVenta.confirmo = false;
-            }
-            }
-            
+
 
         }
 
@@ -690,7 +710,7 @@ namespace POS.Ventas.Vista
         private void cierreDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wndCierreDeCaja cdc = new wndCierreDeCaja(lblId.Text);
-            if(lblId.Text != "")
+            if (lblId.Text != "")
             {
                 cdc.ShowDialog();
                 if (cdc.cerro)
@@ -699,14 +719,14 @@ namespace POS.Ventas.Vista
                     success.ShowDialog();
                     verificarCaja();
                 }
-               
+
             }
             else
             {
                 Default def = new Default("No hay una caja abierta");
                 def.ShowDialog();
             }
-           
+
         }
 
         private void mantenedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -752,11 +772,34 @@ namespace POS.Ventas.Vista
                 Default def = new Default("No hay una caja abierta");
                 def.ShowDialog();
             }
-            
-            
+
+
         }
 
         private void rToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCredito_Click(object sender, EventArgs e)
+        {
+
+            wndMontoCredito wnde = new wndMontoCredito();
+            wnde.ShowDialog();
+
+
+            txtCodigoBarra.Focus();
+        }
+
+        private void dgvData_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dgvData.Rows.Count == 0)
+            {
+                resetMetodoPago();
+            }
+        }
+
+        private void lblMetodoDePago_TextChanged(object sender, EventArgs e)
         {
 
         }
