@@ -28,11 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wndProducto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigobarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuentop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicionp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,10 +54,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbNo = new System.Windows.Forms.RadioButton();
+            this.rbSi = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblId = new System.Windows.Forms.Label();
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.txtFiltroBusqueda = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,31 +76,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.cbCategoria = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.rbSi = new System.Windows.Forms.RadioButton();
-            this.rbNo = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
             this.gbPromo = new System.Windows.Forms.GroupBox();
-            this.numericDesde = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
             this.numericDescuento = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigobarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descuentop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condicionp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericDesde = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbPromo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericDesde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDescuento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDesde)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvData
@@ -96,14 +96,14 @@
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.ColumnHeadersHeight = 50;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -116,15 +116,15 @@
             this.nombreCat,
             this.descuentop,
             this.condicionp});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvData.EnableHeadersVisualStyles = false;
             this.dgvData.Location = new System.Drawing.Point(500, 122);
             this.dgvData.Margin = new System.Windows.Forms.Padding(5);
@@ -132,10 +132,94 @@
             this.dgvData.ReadOnly = true;
             this.dgvData.RowHeadersVisible = false;
             this.dgvData.RowHeadersWidth = 62;
+            this.dgvData.RowTemplate.Height = 40;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(1010, 377);
             this.dgvData.TabIndex = 13;
             this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.id.Visible = false;
+            this.id.Width = 32;
+            // 
+            // codigobarra
+            // 
+            this.codigobarra.DataPropertyName = "codigobarra";
+            this.codigobarra.HeaderText = "COD BARRA";
+            this.codigobarra.Name = "codigobarra";
+            this.codigobarra.ReadOnly = true;
+            this.codigobarra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.codigobarra.Width = 172;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "DESCRIPCIÓN";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.descripcion.Width = 172;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            this.stock.HeaderText = "STOCK";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // precio
+            // 
+            this.precio.DataPropertyName = "precio";
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.precio.DefaultCellStyle = dataGridViewCellStyle5;
+            this.precio.HeaderText = "PRECIO";
+            this.precio.Name = "precio";
+            this.precio.ReadOnly = true;
+            this.precio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.precio.Width = 172;
+            // 
+            // idCategoria
+            // 
+            this.idCategoria.DataPropertyName = "idCategoria";
+            this.idCategoria.HeaderText = "ID CATEGORIA";
+            this.idCategoria.Name = "idCategoria";
+            this.idCategoria.ReadOnly = true;
+            this.idCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.idCategoria.Visible = false;
+            // 
+            // nombreCat
+            // 
+            this.nombreCat.DataPropertyName = "nombreCat";
+            this.nombreCat.HeaderText = "CATEGORIA";
+            this.nombreCat.Name = "nombreCat";
+            this.nombreCat.ReadOnly = true;
+            this.nombreCat.Width = 172;
+            // 
+            // descuentop
+            // 
+            this.descuentop.DataPropertyName = "descuento";
+            this.descuentop.HeaderText = "DESCUENTO";
+            this.descuentop.Name = "descuentop";
+            this.descuentop.ReadOnly = true;
+            this.descuentop.Width = 120;
+            // 
+            // condicionp
+            // 
+            this.condicionp.DataPropertyName = "condicion";
+            this.condicionp.HeaderText = "DESC DESDE";
+            this.condicionp.MinimumWidth = 100;
+            this.condicionp.Name = "condicionp";
+            this.condicionp.ReadOnly = true;
             // 
             // label1
             // 
@@ -282,6 +366,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // rbNo
+            // 
+            this.rbNo.AutoSize = true;
+            this.rbNo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.rbNo.Location = new System.Drawing.Point(250, 388);
+            this.rbNo.Name = "rbNo";
+            this.rbNo.Size = new System.Drawing.Size(60, 34);
+            this.rbNo.TabIndex = 56;
+            this.rbNo.TabStop = true;
+            this.rbNo.Text = "No";
+            this.rbNo.UseVisualStyleBackColor = true;
+            this.rbNo.CheckedChanged += new System.EventHandler(this.rbNo_CheckedChanged);
+            // 
+            // rbSi
+            // 
+            this.rbSi.AutoSize = true;
+            this.rbSi.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.rbSi.Location = new System.Drawing.Point(177, 388);
+            this.rbSi.Name = "rbSi";
+            this.rbSi.Size = new System.Drawing.Size(47, 34);
+            this.rbSi.TabIndex = 55;
+            this.rbSi.TabStop = true;
+            this.rbSi.Text = "Si";
+            this.rbSi.UseVisualStyleBackColor = true;
+            this.rbSi.CheckedChanged += new System.EventHandler(this.rbSi_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(23, 388);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 30);
+            this.label12.TabIndex = 54;
+            this.label12.Text = "Oferta";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblId);
@@ -320,6 +441,17 @@
             this.label11.Size = new System.Drawing.Size(140, 30);
             this.label11.TabIndex = 49;
             this.label11.Text = "Codigo Barra";
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(161, 460);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbCategoria.Size = new System.Drawing.Size(230, 38);
+            this.cbCategoria.TabIndex = 47;
             // 
             // txtFiltroBusqueda
             // 
@@ -467,54 +599,6 @@
             this.label18.Size = new System.Drawing.Size(42, 23);
             this.label18.TabIndex = 70;
             // 
-            // cbCategoria
-            // 
-            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(161, 460);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbCategoria.Size = new System.Drawing.Size(230, 38);
-            this.cbCategoria.TabIndex = 47;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(23, 388);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 30);
-            this.label12.TabIndex = 54;
-            this.label12.Text = "Oferta";
-            // 
-            // rbSi
-            // 
-            this.rbSi.AutoSize = true;
-            this.rbSi.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.rbSi.Location = new System.Drawing.Point(177, 388);
-            this.rbSi.Name = "rbSi";
-            this.rbSi.Size = new System.Drawing.Size(47, 34);
-            this.rbSi.TabIndex = 55;
-            this.rbSi.TabStop = true;
-            this.rbSi.Text = "Si";
-            this.rbSi.UseVisualStyleBackColor = true;
-            this.rbSi.CheckedChanged += new System.EventHandler(this.rbSi_CheckedChanged);
-            // 
-            // rbNo
-            // 
-            this.rbNo.AutoSize = true;
-            this.rbNo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.rbNo.Location = new System.Drawing.Point(250, 388);
-            this.rbNo.Name = "rbNo";
-            this.rbNo.Size = new System.Drawing.Size(60, 34);
-            this.rbNo.TabIndex = 56;
-            this.rbNo.TabStop = true;
-            this.rbNo.Text = "No";
-            this.rbNo.UseVisualStyleBackColor = true;
-            this.rbNo.CheckedChanged += new System.EventHandler(this.rbNo_CheckedChanged);
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -542,15 +626,16 @@
             this.gbPromo.TabStop = false;
             this.gbPromo.Visible = false;
             // 
-            // numericDesde
+            // label21
             // 
-            this.numericDesde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.numericDesde.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.numericDesde.Location = new System.Drawing.Point(171, 24);
-            this.numericDesde.Name = "numericDesde";
-            this.numericDesde.Size = new System.Drawing.Size(74, 35);
-            this.numericDesde.TabIndex = 73;
-            this.numericDesde.TabStop = false;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(251, 87);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(31, 30);
+            this.label21.TabIndex = 76;
+            this.label21.Text = "%";
             // 
             // numericDescuento
             // 
@@ -573,99 +658,15 @@
             this.label20.TabIndex = 74;
             this.label20.Text = "Descuento";
             // 
-            // label21
+            // numericDesde
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(251, 87);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(31, 30);
-            this.label21.TabIndex = 76;
-            this.label21.Text = "%";
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Visible = false;
-            this.id.Width = 35;
-            // 
-            // codigobarra
-            // 
-            this.codigobarra.DataPropertyName = "codigobarra";
-            this.codigobarra.HeaderText = "COD BARRA";
-            this.codigobarra.Name = "codigobarra";
-            this.codigobarra.ReadOnly = true;
-            this.codigobarra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.codigobarra.Width = 172;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "DESCRIPCIÓN";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descripcion.Width = 172;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "STOCK";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "precio";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.precio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.precio.HeaderText = "PRECIO";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.precio.Width = 172;
-            // 
-            // idCategoria
-            // 
-            this.idCategoria.DataPropertyName = "idCategoria";
-            this.idCategoria.HeaderText = "ID CATEGORIA";
-            this.idCategoria.Name = "idCategoria";
-            this.idCategoria.ReadOnly = true;
-            this.idCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.idCategoria.Visible = false;
-            // 
-            // nombreCat
-            // 
-            this.nombreCat.DataPropertyName = "nombreCat";
-            this.nombreCat.HeaderText = "CATEGORIA";
-            this.nombreCat.Name = "nombreCat";
-            this.nombreCat.ReadOnly = true;
-            this.nombreCat.Width = 172;
-            // 
-            // descuentop
-            // 
-            this.descuentop.DataPropertyName = "descuento";
-            this.descuentop.HeaderText = "DESCUENTO";
-            this.descuentop.Name = "descuentop";
-            this.descuentop.ReadOnly = true;
-            this.descuentop.Width = 120;
-            // 
-            // condicionp
-            // 
-            this.condicionp.DataPropertyName = "condicion";
-            this.condicionp.HeaderText = "DESC DESDE";
-            this.condicionp.MinimumWidth = 100;
-            this.condicionp.Name = "condicionp";
-            this.condicionp.ReadOnly = true;
+            this.numericDesde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.numericDesde.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.numericDesde.Location = new System.Drawing.Point(171, 24);
+            this.numericDesde.Name = "numericDesde";
+            this.numericDesde.Size = new System.Drawing.Size(74, 35);
+            this.numericDesde.TabIndex = 73;
+            this.numericDesde.TabStop = false;
             // 
             // wndProducto
             // 
@@ -696,7 +697,6 @@
             this.Name = "wndProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "wndProducto";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.wndProducto_Load);
             this.Shown += new System.EventHandler(this.wndProducto_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
@@ -706,8 +706,8 @@
             this.groupBox2.PerformLayout();
             this.gbPromo.ResumeLayout(false);
             this.gbPromo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericDesde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDescuento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDesde)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

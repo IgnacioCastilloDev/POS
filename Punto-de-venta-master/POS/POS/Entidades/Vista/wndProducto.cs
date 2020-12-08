@@ -213,7 +213,20 @@ namespace POS.Entidades.Vista
 
 
                     //int precioConDescuento = precio - Convert.ToInt32(precio * descuento )/100;
-                   
+
+                    //Preguntar si el producto existe
+
+                 respuesta rExisteCodigoBarra;
+                    rExisteCodigoBarra = pc.buscarXCodigoDeBarra(txtCodigoBarra.Text.Replace(" ", ""));
+                    if (rExisteCodigoBarra.status)
+                    {
+                        Default def = new Default("El codigo de barra ingresado ya existe");
+                        def.ShowDialog();
+                    }
+                    else
+                    {
+
+                    
                 rProducto = pc.agregar(txtCodigoBarra.Text.Replace(" ", ""), Convert.ToInt32(txtStock.Text), txtDescripcion.Text , Convert.ToInt32(txtPrecio.Text), Convert.ToInt32(cbCategoria.SelectedValue),condicion,descuento);
                 if (rProducto.status)
                 {
@@ -228,7 +241,9 @@ namespace POS.Entidades.Vista
                     Default def = new Default("Error al guardar producto");
                     def.ShowDialog();
                 }
-            }
+                    }
+
+                }
             else
             {
                 rProducto = pc.Editar(Convert.ToInt32(lblId.Text), txtCodigoBarra.Text, Convert.ToInt32(txtStock.Text), txtDescripcion.Text, Convert.ToInt32(txtPrecio.Text), Convert.ToInt32(cbCategoria.SelectedValue), condicion, descuento);
