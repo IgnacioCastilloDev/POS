@@ -90,6 +90,7 @@
           <Property Name="estado" Type="char" MaxLength="1" />
           <Property Name="condicion" Type="int" />
           <Property Name="descuento" Type="int" />
+          <Property Name="precio_oferta" Type="int" />
         </EntityType>
         <EntityType Name="PROMOCION">
           <Key>
@@ -459,6 +460,7 @@
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="condicion" Type="Int32" />
           <Property Name="descuento" Type="Int32" />
+          <Property Name="precio_oferta" Type="Int32" />
           <NavigationProperty Name="CATEGORIA" Relationship="Self.fk_PRODUCTO_CATEGORIA" FromRole="PRODUCTO" ToRole="CATEGORIA" />
           <NavigationProperty Name="DETALLE_VENTA" Relationship="Self.fk_DETALLE_VENTA_PRODUCTO" FromRole="PRODUCTO" ToRole="DETALLE_VENTA" />
         </EntityType>
@@ -832,6 +834,7 @@
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="condicion" ColumnName="condicion" />
                 <ScalarProperty Name="descuento" ColumnName="descuento" />
+                <ScalarProperty Name="precio_oferta" ColumnName="precio_oferta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

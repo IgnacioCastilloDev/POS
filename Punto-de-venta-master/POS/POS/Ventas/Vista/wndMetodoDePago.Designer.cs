@@ -77,7 +77,7 @@ namespace POS.Ventas.Vista
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(170, 134);
+            this.label13.Location = new System.Drawing.Point(51, 134);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 20);
             this.label13.TabIndex = 39;
@@ -89,7 +89,7 @@ namespace POS.Ventas.Vista
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(43, 134);
+            this.label6.Location = new System.Drawing.Point(165, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 38;
@@ -100,7 +100,7 @@ namespace POS.Ventas.Vista
             this.btnCredito.BackColor = System.Drawing.Color.White;
             this.btnCredito.Image = ((System.Drawing.Image)(resources.GetObject("btnCredito.Image")));
             this.btnCredito.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCredito.Location = new System.Drawing.Point(267, 54);
+            this.btnCredito.Location = new System.Drawing.Point(267, 44);
             this.btnCredito.Name = "btnCredito";
             this.btnCredito.Size = new System.Drawing.Size(103, 77);
             this.btnCredito.TabIndex = 26;
@@ -112,7 +112,7 @@ namespace POS.Ventas.Vista
             this.btnDebito.BackColor = System.Drawing.Color.White;
             this.btnDebito.Image = ((System.Drawing.Image)(resources.GetObject("btnDebito.Image")));
             this.btnDebito.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDebito.Location = new System.Drawing.Point(146, 54);
+            this.btnDebito.Location = new System.Drawing.Point(28, 44);
             this.btnDebito.Name = "btnDebito";
             this.btnDebito.Size = new System.Drawing.Size(103, 77);
             this.btnDebito.TabIndex = 0;
@@ -124,7 +124,7 @@ namespace POS.Ventas.Vista
             this.btnEfectivo.BackColor = System.Drawing.Color.White;
             this.btnEfectivo.Image = ((System.Drawing.Image)(resources.GetObject("btnEfectivo.Image")));
             this.btnEfectivo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEfectivo.Location = new System.Drawing.Point(21, 54);
+            this.btnEfectivo.Location = new System.Drawing.Point(147, 44);
             this.btnEfectivo.Name = "btnEfectivo";
             this.btnEfectivo.Size = new System.Drawing.Size(103, 77);
             this.btnEfectivo.TabIndex = 0;

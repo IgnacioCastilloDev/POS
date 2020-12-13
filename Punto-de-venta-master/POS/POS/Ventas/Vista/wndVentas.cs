@@ -60,32 +60,11 @@ namespace POS.Ventas.Vista
             return resultadoAjuste;
         }
 
-        public int calcularDescuento(int cantidad, int condicion, int descuento, int subtotal, int precio, int NumericCantidad)
-        {
-            int subtotalConDescuento = 0;
-            int totalCorregido = 0;
-            if (cantidad >= condicion)
-            {
-
-                int resultadoSinDescuento = precio * cantidad;
-                int resultadoDescuento = (resultadoSinDescuento * descuento) / 100;
-                subtotalConDescuento = resultadoSinDescuento - resultadoDescuento;
-                totalCorregido = ajusteSencillo(subtotalConDescuento);
-
-            }
-            //int resultadoSinDescuento = Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value) + (Convert.ToInt32(producto.precio)
-            //                            * Convert.ToInt32(numericCantidad.Value));
-            //int resultadoDescuento = Convert.ToInt32(resultadoSinDescuento * descuento) / 100;
-            //int subtotalConDescuento = resultadoSinDescuento - resultadoDescuento;
-            //dgvData.Rows[rowIndex].Cells["subtotal"].Value = subtotalConDescuento;
-
-            return totalCorregido;
-        }
+        
 
 
         void traerXCodigoDeBarra()
-        {
-            
+        {     
 
             if (lblId.Text != "")
             {
@@ -108,19 +87,6 @@ namespace POS.Ventas.Vista
                     int? condicion = producto.condicion;
                     int? descuento = producto.descuento;
 
-                    //if (rPromocion.status)
-                    //{
-                    //    PROMOCION promocion = (PROMOCION)rPromocion.Data;
-                    //    condicion = Convert.ToInt32(promocion.condicion);
-                    //    descuento = promocion.descuento;
-                    //}
-                    //else
-                    //{
-                    //    condicion = 0;
-                    //    descuento = 0;
-
-                    //}
-
                     int rowIndex = -1;
                     if (dgvData.RowCount > 0)
                     {
@@ -142,11 +108,11 @@ namespace POS.Ventas.Vista
                                     {
                                         rowIndex = row.Index;
                                         dgvData.Rows[rowIndex].Cells["cantidad"].Value = Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) + numericCantidad.Value;
-                                        if (Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) >= condicion)
+                                        if (Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value) >= condicion && producto.precio_oferta != 0)
                                         {
 
-                                            dgvData.Rows[rowIndex].Cells["subtotal"].Value = ajusteSencillo(calcularDescuento(Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value), Convert.ToInt32(condicion), Convert.ToInt32(descuento),
-                                                Convert.ToInt32(dgvData.Rows[rowIndex].Cells["subtotal"].Value), Convert.ToInt32(producto.precio), Convert.ToInt32(numericCantidad.Value)));
+                                            dgvData.Rows[rowIndex].Cells["subtotal"].Value =
+                                                ajusteSencillo(Convert.ToInt32(producto.precio_oferta * Convert.ToInt32(dgvData.Rows[rowIndex].Cells["cantidad"].Value)));
                                         }
                                         else
                                         {
@@ -158,39 +124,70 @@ namespace POS.Ventas.Vista
                                 }
                             }
                         }
+
+                        //Segundo codigo
                         if (existe != true)
                         {
-                            if (numericCantidad.Value >= condicion)
+                            if (numericCantidad.Value >= condicion && producto.precio_oferta != 0)
                             {
-                                int subtotal = Convert.ToInt32(producto.precio * numericCantidad.Value);
-                                int descuentoAlSubTotal = Convert.ToInt32(subtotal * descuento) / 100;
-                                int subtotalConDescuento = subtotal - descuentoAlSubTotal;
-                                dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo(subtotalConDescuento));
+                                ////////aquik
+                                int subtotal = Convert.ToInt32(producto.precio_oferta * numericCantidad.Value);
+
+                                dgvData.Rows.Add(producto.id,
+                                    producto.codigobarra,
+                                    producto.descripcion, 
+                                    producto.stock, 
+                                    producto.precio,
+                                    producto.precio_oferta,
+                                    numericCantidad.Value,
+                                    subtotal,    
+                                    producto.condicion);
                             }
                             else
                             {
 
-                                dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))));
+                                dgvData.Rows.Add(producto.id,
+                                    producto.codigobarra,
+                                    producto.descripcion, 
+                                    producto.stock,
+                                    producto.precio,
+                                    producto.precio_oferta,
+                                    numericCantidad.Value,
+                                    ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))),
+                                    producto.condicion);
 
                             }
-                            //Utils.reproducirBeep();
+                        
                         }
                     }
                     else
                     {
-                        if (numericCantidad.Value >= condicion)
-
+                        if (numericCantidad.Value >= condicion && producto.precio_oferta!=0)
                         {
-                            int subtotal = Convert.ToInt32(producto.precio * numericCantidad.Value);
-                            int descuentoAlSubTotal = Convert.ToInt32(subtotal * descuento) / 100;
-                            int subtotalConDescuento = subtotal - descuentoAlSubTotal;
-                            dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo(subtotalConDescuento));
-                            //AQUI 
+                            int subtotal = Convert.ToInt32(producto.precio_oferta * numericCantidad.Value);        
+                            dgvData.Rows.Add(producto.id,
+                                producto.codigobarra,
+                                producto.descripcion,
+                                producto.stock, 
+                                producto.precio,
+                                producto.precio_oferta,
+                                numericCantidad.Value,
+                                ajusteSencillo(subtotal),                              
+                                producto.condicion);
+                            //AQUI eso es otra mierda
                         }
                         else
                         {
 
-                            dgvData.Rows.Add(producto.id, producto.codigobarra, producto.descripcion, producto.stock, producto.precio, numericCantidad.Value, ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))));
+                            dgvData.Rows.Add(producto.id, 
+                                producto.codigobarra,
+                                producto.descripcion,
+                                producto.stock,
+                                producto.precio,
+                                producto.precio_oferta,
+                                numericCantidad.Value,
+                                ajusteSencillo((Convert.ToInt32(producto.precio) * Convert.ToInt32(numericCantidad.Value))),
+                                producto.condicion);
                         }
                     }
                     dgvData.Rows[0].Selected = false;
@@ -378,10 +375,7 @@ namespace POS.Ventas.Vista
             wndAnularProducto wap = new wndAnularProducto();
             wap.ShowDialog();
 
-            if (_codigoBarraAnular == "")
-            {
-            }
-            else
+            if (_codigoBarraAnular != "")
             {
                 for (int row = 0; row < dgvData.Rows.Count; row++)
                 {
@@ -402,8 +396,18 @@ namespace POS.Ventas.Vista
                             }
                             else
                             {
-                                dgvData.Rows[codigoRepetido].Cells["cantidad"].Value = cantidad - Convert.ToInt32(_cantidadAnular);
-                                dgvData.Rows[codigoRepetido].Cells["subtotal"].Value = ajusteSencillo(Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["precio"].Value) * Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value));
+                                //Evaluar promocion
+                                if(Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value) > Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["condicion"].Value))
+                                {
+                                    dgvData.Rows[codigoRepetido].Cells["cantidad"].Value = cantidad - Convert.ToInt32(_cantidadAnular);
+                                    dgvData.Rows[codigoRepetido].Cells["subtotal"].Value = ajusteSencillo(Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["precio_oferta"].Value) * Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value));
+                                }
+                                else
+                                {
+                                    dgvData.Rows[codigoRepetido].Cells["cantidad"].Value = cantidad - Convert.ToInt32(_cantidadAnular);
+                                    dgvData.Rows[codigoRepetido].Cells["subtotal"].Value = ajusteSencillo(Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["precio"].Value) * Convert.ToInt32(dgvData.Rows[codigoRepetido].Cells["cantidad"].Value));
+
+                                }            
                             }
                             if (Convert.ToInt32(_cantidadAnular) == cantidad)
                             {
@@ -417,6 +421,7 @@ namespace POS.Ventas.Vista
                     _codigoBarraAnular = null;
                 }
             }
+                       
             txtCodigoBarra.Focus();
         }
         public static void anularProducto(string _codigo, string _cantidad)
@@ -614,12 +619,6 @@ namespace POS.Ventas.Vista
             if (dgvData.Rows.Count > 0)
             {
 
-                if (metodoDePago == 2 || metodoDePago == 3)
-                {
-
-
-                }
-
                 wndConfirmarVenta wConfirmarVenta = new wndConfirmarVenta();
                 wConfirmarVenta.ShowDialog();
                 if (wConfirmarVenta.confirmo)
@@ -786,11 +785,7 @@ namespace POS.Ventas.Vista
         private void btnCredito_Click(object sender, EventArgs e)
         {
 
-            wndMontoCredito wnde = new wndMontoCredito();
-            wnde.ShowDialog();
-
-
-            txtCodigoBarra.Focus();
+           
         }
 
         private void dgvData_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)

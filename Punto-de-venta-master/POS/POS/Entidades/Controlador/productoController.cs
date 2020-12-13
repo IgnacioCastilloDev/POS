@@ -14,7 +14,7 @@ namespace POS.Entidades.Controlador
 
 
 
-        public respuesta agregar(string _codigoBarra,int _stock,string _descripcion,int _precio,int _idCategoria,int _condicion,int _descuento)
+        public respuesta agregar(string _codigoBarra,int _stock,string _descripcion,int _precio,int _idCategoria,int _condicion,int _descuento, int _precioOferta)
         {
             respuesta r;
             try
@@ -30,6 +30,7 @@ namespace POS.Entidades.Controlador
                         obj.precio = _precio;
                         obj.fk_id_categoria = _idCategoria;
                         obj.estado = "1";
+                        obj.precio_oferta = _precioOferta;
                         obj.condicion = _condicion;
                         obj.descuento = _descuento;
                         db.PRODUCTO.Add(obj);
@@ -183,7 +184,7 @@ namespace POS.Entidades.Controlador
             }
 
             return r;
-
+            
         }
         public respuesta buscarXCodigoDeBarra(string _codigoBarra)
         {
@@ -196,6 +197,8 @@ namespace POS.Entidades.Controlador
                 using (POS.DBModel.negocioEntities db = new POS.DBModel.negocioEntities())
                 {
 
+
+                   
                     try
                     {
 

@@ -48,9 +48,28 @@ namespace POS.Ventas.Vista
 
         }
 
+        void solonumeros(KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+                       if (Char.IsControl(e.KeyChar)) //permitir teclas de control 
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                //el resto de teclas (no numéricas ni de control) pulsadas se desactivan
+                e.Handled = true;
+            }
+            
+        }
+
         private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            solonumeros(e);
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
@@ -59,6 +78,12 @@ namespace POS.Ventas.Vista
             {
                 ingresarMonto();
             }
+        }
+
+        private void txtEfectivo_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            
         }
     }
 }

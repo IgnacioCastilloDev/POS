@@ -27,7 +27,7 @@ namespace POS.Ventas.Vista
 
         private void wndMetodoDePago_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnEfectivo_Click(object sender, EventArgs e)

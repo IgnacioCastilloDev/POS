@@ -29,6 +29,7 @@ namespace POS.DBModel
         public string estado { get; set; }
         public Nullable<int> condicion { get; set; }
         public Nullable<int> descuento { get; set; }
+        public Nullable<int> precio_oferta { get; set; }
     
         public virtual CATEGORIA CATEGORIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -203,11 +203,10 @@ namespace POS.Entidades.Vista
             if (txtCodigoBarra.Text != "" && txtDescripcion.Text != "" && txtPrecio.Text != "" && txtStock.Text != "")
             {
 
-                if (rbSi.Checked)
-                {
+              
                     descuento = Convert.ToInt32(numericDescuento.Value);
                     condicion = Convert.ToInt32(numericDesde.Value);
-                }
+                
                 if (lblId.Text == "")
             {
 
@@ -227,7 +226,7 @@ namespace POS.Entidades.Vista
                     {
 
                     
-                rProducto = pc.agregar(txtCodigoBarra.Text.Replace(" ", ""), Convert.ToInt32(txtStock.Text), txtDescripcion.Text , Convert.ToInt32(txtPrecio.Text), Convert.ToInt32(cbCategoria.SelectedValue),condicion,descuento);
+                rProducto = pc.agregar(txtCodigoBarra.Text.Replace(" ", ""), Convert.ToInt32(txtStock.Text), txtDescripcion.Text , Convert.ToInt32(txtPrecio.Text), Convert.ToInt32(cbCategoria.SelectedValue),condicion,descuento,Convert.ToInt32(txtPrecioOferta.Text));
                 if (rProducto.status)
                 {
                     Success success = new Success("Producto Guardado correctamente");
@@ -351,6 +350,11 @@ namespace POS.Entidades.Vista
             numericDescuento.Value = 0;
             descuento = 0;
             condicion = 0;
+        }
+
+        private void txtPrecioOferta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            solonumeros(e);
         }
     }
 }
