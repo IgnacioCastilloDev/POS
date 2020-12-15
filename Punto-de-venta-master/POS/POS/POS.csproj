@@ -185,6 +185,12 @@
     <Compile Include="Login\Vista\wndLogin.Designer.cs">
       <DependentUpon>wndLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\wndReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\wndReportes.Designer.cs">
+      <DependentUpon>wndReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\respuesta.cs" />
     <Compile Include="Utilidades\Utils.cs" />
     <Compile Include="Ventas\Controlador\detalleVentaController.cs" />
@@ -281,6 +287,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\wndReportes.resx">
+      <DependentUpon>wndReportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ventas\Vista\wndAbrirCaja.resx">
       <DependentUpon>wndAbrirCaja.cs</DependentUpon>
     </EmbeddedResource>

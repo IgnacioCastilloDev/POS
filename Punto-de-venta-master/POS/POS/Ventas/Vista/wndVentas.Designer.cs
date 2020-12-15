@@ -62,17 +62,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promocionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigobarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.numericCantidad = new System.Windows.Forms.NumericUpDown();
@@ -86,10 +91,6 @@
             this.lblCredito = new System.Windows.Forms.Label();
             this.lblDebito = new System.Windows.Forms.Label();
             this.lblEfectivo = new System.Windows.Forms.Label();
-            this.btnCredito = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnDebito = new System.Windows.Forms.Button();
-            this.btnEfectivo = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.lblVentaActual = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -99,21 +100,21 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.lblMetodoDePago = new System.Windows.Forms.Label();
-            this.btnConfirmarVenta = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAnularProducto = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.cmsEliminar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigobarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConfirmarVenta = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCredito = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnDebito = new System.Windows.Forms.Button();
+            this.btnEfectivo = new System.Windows.Forms.Button();
+            this.btnAnularProducto = new System.Windows.Forms.Button();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
@@ -284,18 +285,12 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.opcionesToolStripMenuItem,
             this.dToolStripMenuItem,
-            this.rToolStripMenuItem,
             this.mantenedoresToolStripMenuItem,
-            this.ventasToolStripMenuItem});
+            this.ventasToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Stretch = false;
-            // 
-            // opcionesToolStripMenuItem
-            // 
-            resources.ApplyResources(this.opcionesToolStripMenuItem, "opcionesToolStripMenuItem");
-            this.opcionesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             // 
             // dToolStripMenuItem
             // 
@@ -324,28 +319,6 @@
             this.operacionesToolStripMenuItem.Name = "operacionesToolStripMenuItem";
             resources.ApplyResources(this.operacionesToolStripMenuItem, "operacionesToolStripMenuItem");
             this.operacionesToolStripMenuItem.Click += new System.EventHandler(this.operacionesToolStripMenuItem_Click);
-            // 
-            // rToolStripMenuItem
-            // 
-            resources.ApplyResources(this.rToolStripMenuItem, "rToolStripMenuItem");
-            this.rToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rToolStripMenuItem.Name = "rToolStripMenuItem";
-            this.rToolStripMenuItem.Click += new System.EventHandler(this.rToolStripMenuItem_Click);
-            // 
-            // mantenedoresToolStripMenuItem
-            // 
-            this.mantenedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productosToolStripMenuItem});
-            resources.ApplyResources(this.mantenedoresToolStripMenuItem, "mantenedoresToolStripMenuItem");
-            this.mantenedoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.mantenedoresToolStripMenuItem.Name = "mantenedoresToolStripMenuItem";
-            this.mantenedoresToolStripMenuItem.Click += new System.EventHandler(this.mantenedoresToolStripMenuItem_Click);
-            // 
-            // productosToolStripMenuItem
-            // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
-            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem
             // 
@@ -416,6 +389,77 @@
             this.dgvData.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvData_RowsAdded);
             this.dgvData.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvData_RowsRemoved);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.id.DataPropertyName = "id";
+            resources.ApplyResources(this.id, "id");
+            this.id.Name = "id";
+            // 
+            // codigobarra
+            // 
+            this.codigobarra.DataPropertyName = "codigobarra";
+            resources.ApplyResources(this.codigobarra, "codigobarra");
+            this.codigobarra.Name = "codigobarra";
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            resources.ApplyResources(this.descripcion, "descripcion");
+            this.descripcion.Name = "descripcion";
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.stock.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.stock, "stock");
+            this.stock.Name = "stock";
+            // 
+            // precio
+            // 
+            this.precio.DataPropertyName = "precio";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.precio.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.precio, "precio");
+            this.precio.Name = "precio";
+            // 
+            // precio_oferta
+            // 
+            this.precio_oferta.DataPropertyName = "precio_oferta";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.precio_oferta.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.precio_oferta, "precio_oferta");
+            this.precio_oferta.Name = "precio_oferta";
+            // 
+            // cantidad
+            // 
+            this.cantidad.DataPropertyName = "cantidad";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cantidad.DefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.cantidad, "cantidad");
+            this.cantidad.Name = "cantidad";
+            // 
+            // subtotal
+            // 
+            this.subtotal.DataPropertyName = "subtotal";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = "1";
+            this.subtotal.DefaultCellStyle = dataGridViewCellStyle6;
+            resources.ApplyResources(this.subtotal, "subtotal");
+            this.subtotal.Name = "subtotal";
+            // 
+            // condicion
+            // 
+            this.condicion.DataPropertyName = "condicion";
+            resources.ApplyResources(this.condicion, "condicion");
+            this.condicion.Name = "condicion";
+            // 
             // label17
             // 
             resources.ApplyResources(this.label17, "label17");
@@ -438,7 +482,6 @@
             0,
             0});
             this.numericCantidad.Name = "numericCantidad";
-            this.numericCantidad.ReadOnly = true;
             this.numericCantidad.TabStop = false;
             this.numericCantidad.Value = new decimal(new int[] {
             1,
@@ -517,37 +560,6 @@
             this.lblEfectivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblEfectivo.Name = "lblEfectivo";
             // 
-            // btnCredito
-            // 
-            this.btnCredito.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnCredito, "btnCredito");
-            this.btnCredito.Name = "btnCredito";
-            this.btnCredito.UseVisualStyleBackColor = false;
-            this.btnCredito.Click += new System.EventHandler(this.btnCredito_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // btnDebito
-            // 
-            this.btnDebito.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnDebito, "btnDebito");
-            this.btnDebito.Name = "btnDebito";
-            this.btnDebito.UseVisualStyleBackColor = false;
-            this.btnDebito.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnEfectivo
-            // 
-            this.btnEfectivo.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.btnEfectivo, "btnEfectivo");
-            this.btnEfectivo.Name = "btnEfectivo";
-            this.btnEfectivo.UseVisualStyleBackColor = false;
-            this.btnEfectivo.Click += new System.EventHandler(this.btnEfectivo_Click);
-            // 
             // label22
             // 
             resources.ApplyResources(this.label22, "label22");
@@ -607,6 +619,19 @@
             this.lblMetodoDePago.Name = "lblMetodoDePago";
             this.lblMetodoDePago.TextChanged += new System.EventHandler(this.lblMetodoDePago_TextChanged);
             // 
+            // cmsEliminar
+            // 
+            this.cmsEliminar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.cmsEliminar.Name = "cmsEliminar";
+            resources.ApplyResources(this.cmsEliminar, "cmsEliminar");
+            this.cmsEliminar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsEliminar_ItemClicked);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
             // btnConfirmarVenta
             // 
             this.btnConfirmarVenta.BackColor = System.Drawing.Color.White;
@@ -623,12 +648,64 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnCredito
+            // 
+            this.btnCredito.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnCredito, "btnCredito");
+            this.btnCredito.Name = "btnCredito";
+            this.btnCredito.UseVisualStyleBackColor = false;
+            this.btnCredito.Click += new System.EventHandler(this.btnCredito_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.button6, "button6");
+            this.button6.Name = "button6";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // btnDebito
+            // 
+            this.btnDebito.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnDebito, "btnDebito");
+            this.btnDebito.Name = "btnDebito";
+            this.btnDebito.UseVisualStyleBackColor = false;
+            this.btnDebito.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnEfectivo
+            // 
+            this.btnEfectivo.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.btnEfectivo, "btnEfectivo");
+            this.btnEfectivo.Name = "btnEfectivo";
+            this.btnEfectivo.UseVisualStyleBackColor = false;
+            this.btnEfectivo.Click += new System.EventHandler(this.btnEfectivo_Click);
+            // 
             // btnAnularProducto
             // 
             resources.ApplyResources(this.btnAnularProducto, "btnAnularProducto");
             this.btnAnularProducto.Name = "btnAnularProducto";
             this.btnAnularProducto.UseVisualStyleBackColor = true;
             this.btnAnularProducto.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.opcionesToolStripMenuItem, "opcionesToolStripMenuItem");
+            this.opcionesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            // 
+            // mantenedoresToolStripMenuItem
+            // 
+            this.mantenedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productosToolStripMenuItem});
+            resources.ApplyResources(this.mantenedoresToolStripMenuItem, "mantenedoresToolStripMenuItem");
+            this.mantenedoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mantenedoresToolStripMenuItem.Name = "mantenedoresToolStripMenuItem";
+            this.mantenedoresToolStripMenuItem.Click += new System.EventHandler(this.mantenedoresToolStripMenuItem_Click);
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // btnBuscar
             // 
@@ -637,89 +714,18 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // cmsEliminar
+            // reportesToolStripMenuItem
             // 
-            this.cmsEliminar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.cmsEliminar.Name = "cmsEliminar";
-            resources.ApplyResources(this.cmsEliminar, "cmsEliminar");
-            this.cmsEliminar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cmsEliminar_ItemClicked);
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportesDeVentasToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             // 
-            // toolStripMenuItem1
+            // reportesDeVentasToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.id.DataPropertyName = "id";
-            resources.ApplyResources(this.id, "id");
-            this.id.Name = "id";
-            // 
-            // codigobarra
-            // 
-            this.codigobarra.DataPropertyName = "codigobarra";
-            resources.ApplyResources(this.codigobarra, "codigobarra");
-            this.codigobarra.Name = "codigobarra";
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            resources.ApplyResources(this.descripcion, "descripcion");
-            this.descripcion.Name = "descripcion";
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.stock.DefaultCellStyle = dataGridViewCellStyle2;
-            resources.ApplyResources(this.stock, "stock");
-            this.stock.Name = "stock";
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "precio";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.precio.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.precio, "precio");
-            this.precio.Name = "precio";
-            // 
-            // precio_oferta
-            // 
-            this.precio_oferta.DataPropertyName = "precio_oferta";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.precio_oferta.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.precio_oferta, "precio_oferta");
-            this.precio_oferta.Name = "precio_oferta";
-            // 
-            // cantidad
-            // 
-            this.cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cantidad.DefaultCellStyle = dataGridViewCellStyle5;
-            resources.ApplyResources(this.cantidad, "cantidad");
-            this.cantidad.Name = "cantidad";
-            // 
-            // subtotal
-            // 
-            this.subtotal.DataPropertyName = "subtotal";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = "1";
-            this.subtotal.DefaultCellStyle = dataGridViewCellStyle6;
-            resources.ApplyResources(this.subtotal, "subtotal");
-            this.subtotal.Name = "subtotal";
-            // 
-            // condicion
-            // 
-            this.condicion.DataPropertyName = "condicion";
-            resources.ApplyResources(this.condicion, "condicion");
-            this.condicion.Name = "condicion";
+            this.reportesDeVentasToolStripMenuItem.Name = "reportesDeVentasToolStripMenuItem";
+            resources.ApplyResources(this.reportesDeVentasToolStripMenuItem, "reportesDeVentasToolStripMenuItem");
+            this.reportesDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reportesDeVentasToolStripMenuItem_Click);
             // 
             // wndVentas
             // 
@@ -792,7 +798,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenedoresToolStripMenuItem;
         private System.Windows.Forms.Label lblDatoVuelto;
         private System.Windows.Forms.Label label2;
@@ -856,5 +861,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn condicion;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesDeVentasToolStripMenuItem;
     }
 }

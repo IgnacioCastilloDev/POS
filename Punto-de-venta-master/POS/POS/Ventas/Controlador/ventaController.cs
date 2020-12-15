@@ -13,7 +13,7 @@ namespace POS.Ventas.Controlador
     class ventaController
     {
 
-        public respuesta agregar(DateTime _fecha, int _apertura,int _subTotalDebito,int _subTotalCredito,int? _totalVenta,int _fk_idMetodoDePago, int _fk_idTipoDocumento)
+        public respuesta agregar(DateTime _fecha, int _apertura,int? _totalVenta,int _fk_idMetodoDePago, int _fk_idTipoDocumento)
         {
             respuesta r;
             try
@@ -28,8 +28,7 @@ namespace POS.Ventas.Controlador
                         obj.fk_id_metodoPago = _fk_idMetodoDePago;
                         obj.total_venta = _totalVenta;
                         obj.fk_id_tipo_documento = _fk_idTipoDocumento;
-                        obj.subtotal_debito = _subTotalDebito;
-                        obj.subtotal_credito = _subTotalCredito;
+                      
                         db.VENTA.Add(obj);
                         int afected = db.SaveChanges();
                         VENTA VENTA = (VENTA)obj;

@@ -24,8 +24,6 @@ namespace POS.DBModel
         public Nullable<System.DateTime> fecha { get; set; }
         public int fk_id_apertura { get; set; }
         public Nullable<int> total_venta { get; set; }
-        public Nullable<int> subtotal_debito { get; set; }
-        public Nullable<int> subtotal_credito { get; set; }
         public int fk_id_metodoPago { get; set; }
         public Nullable<int> fk_id_tipo_documento { get; set; }
     

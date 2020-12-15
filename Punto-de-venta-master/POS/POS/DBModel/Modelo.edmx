@@ -142,8 +142,6 @@
           <Property Name="fecha" Type="date" />
           <Property Name="fk_id_apertura" Type="int" Nullable="false" />
           <Property Name="total_venta" Type="int" />
-          <Property Name="subtotal_debito" Type="int" />
-          <Property Name="subtotal_credito" Type="int" />
           <Property Name="fk_id_metodoPago" Type="int" Nullable="false" />
           <Property Name="fk_id_tipo_documento" Type="int" />
         </EntityType>
@@ -518,8 +516,6 @@
           <Property Name="fecha" Type="DateTime" Precision="0" />
           <Property Name="fk_id_apertura" Type="Int32" Nullable="false" />
           <Property Name="total_venta" Type="Int32" />
-          <Property Name="subtotal_debito" Type="Int32" />
-          <Property Name="subtotal_credito" Type="Int32" />
           <Property Name="fk_id_metodoPago" Type="Int32" Nullable="false" />
           <Property Name="fk_id_tipo_documento" Type="Int32" />
           <NavigationProperty Name="APERTURA" Relationship="Self.fk_VENTA_APERTURA" FromRole="VENTA" ToRole="APERTURA" />
@@ -892,8 +888,6 @@
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="fk_id_apertura" ColumnName="fk_id_apertura" />
                 <ScalarProperty Name="total_venta" ColumnName="total_venta" />
-                <ScalarProperty Name="subtotal_debito" ColumnName="subtotal_debito" />
-                <ScalarProperty Name="subtotal_credito" ColumnName="subtotal_credito" />
                 <ScalarProperty Name="fk_id_metodoPago" ColumnName="fk_id_metodoPago" />
                 <ScalarProperty Name="fk_id_tipo_documento" ColumnName="fk_id_tipo_documento" />
               </MappingFragment>

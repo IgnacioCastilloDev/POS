@@ -4,6 +4,7 @@ using POS.Entidades.Controlador;
 using POS.Entidades.Modelo;
 using POS.Entidades.Vista;
 using POS.Login.Controlador;
+using POS.Reportes;
 using POS.Utilidades;
 using POS.Ventas.Controlador;
 using POS.Ventas.Modelo;
@@ -596,12 +597,13 @@ namespace POS.Ventas.Vista
             cbTipoDocumento.SelectedValue = 1;
             dgvData.Rows.Clear();
             resetMetodoPago();
-
+            numericCantidad.Value = 1;
+            txtCodigoBarra.Text = "";
         }
 
         private void numericCantidad_Enter(object sender, EventArgs e)
         {
-            ActiveControl = txtCodigoBarra;
+            //ActiveControl = txtCodigoBarra;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -628,7 +630,7 @@ namespace POS.Ventas.Vista
                     ventaController vc = new ventaController();
                     Boolean ventaStatus = false;
                     detalleVentaController dvc = new detalleVentaController();
-                    rVenta = vc.agregar(DateTime.Now, Convert.ToInt32(lblId.Text), 0, 0, Convert.ToInt32(lblTotal.Text.Replace(".", "")), metodoDePago,Convert.ToInt32(cbTipoDocumento.SelectedValue));
+                    rVenta = vc.agregar(DateTime.Now, Convert.ToInt32(lblId.Text),  Convert.ToInt32(lblTotal.Text.Replace(".", "")), metodoDePago,Convert.ToInt32(cbTipoDocumento.SelectedValue));
                     if (rVenta.status)
                     {
                         VENTA ventaHecha = (VENTA)rVenta.Data;
@@ -825,6 +827,18 @@ namespace POS.Ventas.Vista
         private void cmsEliminar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             MessageBox.Show("asdasd");
+        }
+
+        private void numericCantidad_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportesDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wndReportes wnd = new wndReportes();
+            wnd.ShowDialog();
+
         }
     }
 }
