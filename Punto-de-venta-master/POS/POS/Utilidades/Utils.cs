@@ -9,9 +9,24 @@ using WMPLib;
 
 namespace POS.Utilidades
 {
-    public class Utils
+    public static class Utils
     {
+        public  class  VariablesGlobales {
+            //Metodo pago
+             
+            public static int Efectivo = 1;
+            public static int Debito = 2;
+            public static int Credito = 3;
 
+
+            //Tipo Documento 
+            public static int Boleta  = 1;
+            public static int Factura = 2;
+
+
+
+
+        }
         public static Form abrirAlertaDefault(string _mensaje)
         {
 

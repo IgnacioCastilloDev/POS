@@ -29,9 +29,9 @@ namespace POS.Reportes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigobarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,19 +41,19 @@ namespace POS.Reportes
             this.idCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbEstado = new System.Windows.Forms.GroupBox();
-            this.rbActivo = new System.Windows.Forms.RadioButton();
-            this.rbInactivo = new System.Windows.Forms.RadioButton();
+            this.rbCredito = new System.Windows.Forms.RadioButton();
+            this.rbEfectivo = new System.Windows.Forms.RadioButton();
+            this.rbDebito = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.cbListaPrecio = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -67,14 +67,14 @@ namespace POS.Reportes
             this.dgvData.AllowUserToDeleteRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.ColumnHeadersHeight = 50;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,17 +84,17 @@ namespace POS.Reportes
             this.stock,
             this.precio,
             this.idCategoria});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvData.EnableHeadersVisualStyles = false;
-            this.dgvData.Location = new System.Drawing.Point(496, 40);
+            this.dgvData.Location = new System.Drawing.Point(470, 24);
             this.dgvData.Margin = new System.Windows.Forms.Padding(5);
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -145,9 +145,9 @@ namespace POS.Reportes
             // precio
             // 
             this.precio.DataPropertyName = "precio";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.precio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.precio.DefaultCellStyle = dataGridViewCellStyle5;
             this.precio.HeaderText = "METODO PAGO";
             this.precio.Name = "precio";
             this.precio.ReadOnly = true;
@@ -167,10 +167,10 @@ namespace POS.Reportes
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, -4);
+            this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1201, 666);
+            this.tabControl1.Size = new System.Drawing.Size(1164, 650);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
@@ -180,26 +180,17 @@ namespace POS.Reportes
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1193, 640);
+            this.tabPage1.Size = new System.Drawing.Size(1156, 624);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1193, 640);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbTipoDocumento);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.cbListaPrecio);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnBuscar);
             this.groupBox2.Controls.Add(this.gbEstado);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.dtpDesde);
@@ -212,52 +203,75 @@ namespace POS.Reportes
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
             // 
-            // button1
+            // label1
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(301, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 32);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Tipo documento";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(301, 35);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(86, 32);
+            this.btnBuscar.TabIndex = 43;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // gbEstado
             // 
-            this.gbEstado.Controls.Add(this.radioButton1);
-            this.gbEstado.Controls.Add(this.rbActivo);
-            this.gbEstado.Controls.Add(this.rbInactivo);
+            this.gbEstado.Controls.Add(this.rbCredito);
+            this.gbEstado.Controls.Add(this.rbEfectivo);
+            this.gbEstado.Controls.Add(this.rbDebito);
             this.gbEstado.Location = new System.Drawing.Point(11, 69);
             this.gbEstado.Name = "gbEstado";
-            this.gbEstado.Size = new System.Drawing.Size(287, 51);
+            this.gbEstado.Size = new System.Drawing.Size(332, 52);
             this.gbEstado.TabIndex = 43;
             this.gbEstado.TabStop = false;
             this.gbEstado.Text = "Metodo de pago";
             // 
-            // rbActivo
+            // rbCredito
             // 
-            this.rbActivo.AutoSize = true;
-            this.rbActivo.Checked = true;
-            this.rbActivo.Location = new System.Drawing.Point(6, 19);
-            this.rbActivo.Name = "rbActivo";
-            this.rbActivo.Size = new System.Drawing.Size(63, 18);
-            this.rbActivo.TabIndex = 17;
-            this.rbActivo.TabStop = true;
-            this.rbActivo.Text = "Efectivo";
-            this.rbActivo.UseCompatibleTextRendering = true;
-            this.rbActivo.UseVisualStyleBackColor = true;
+            this.rbCredito.AutoSize = true;
+            this.rbCredito.Location = new System.Drawing.Point(140, 19);
+            this.rbCredito.Name = "rbCredito";
+            this.rbCredito.Size = new System.Drawing.Size(59, 18);
+            this.rbCredito.TabIndex = 19;
+            this.rbCredito.TabStop = true;
+            this.rbCredito.Text = "Credito";
+            this.rbCredito.UseCompatibleTextRendering = true;
+            this.rbCredito.UseVisualStyleBackColor = true;
             // 
-            // rbInactivo
+            // rbEfectivo
             // 
-            this.rbInactivo.AutoSize = true;
-            this.rbInactivo.Location = new System.Drawing.Point(75, 19);
-            this.rbInactivo.Name = "rbInactivo";
-            this.rbInactivo.Size = new System.Drawing.Size(55, 18);
-            this.rbInactivo.TabIndex = 18;
-            this.rbInactivo.TabStop = true;
-            this.rbInactivo.Text = "Debito";
-            this.rbInactivo.UseCompatibleTextRendering = true;
-            this.rbInactivo.UseVisualStyleBackColor = true;
+            this.rbEfectivo.AutoSize = true;
+            this.rbEfectivo.Checked = true;
+            this.rbEfectivo.Location = new System.Drawing.Point(6, 19);
+            this.rbEfectivo.Name = "rbEfectivo";
+            this.rbEfectivo.Size = new System.Drawing.Size(63, 18);
+            this.rbEfectivo.TabIndex = 17;
+            this.rbEfectivo.TabStop = true;
+            this.rbEfectivo.Text = "Efectivo";
+            this.rbEfectivo.UseCompatibleTextRendering = true;
+            this.rbEfectivo.UseVisualStyleBackColor = true;
+            this.rbEfectivo.CheckedChanged += new System.EventHandler(this.rbEfectivo_CheckedChanged);
+            // 
+            // rbDebito
+            // 
+            this.rbDebito.AutoSize = true;
+            this.rbDebito.Location = new System.Drawing.Point(75, 19);
+            this.rbDebito.Name = "rbDebito";
+            this.rbDebito.Size = new System.Drawing.Size(55, 18);
+            this.rbDebito.TabIndex = 18;
+            this.rbDebito.TabStop = true;
+            this.rbDebito.Text = "Debito";
+            this.rbDebito.UseCompatibleTextRendering = true;
+            this.rbDebito.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -301,35 +315,25 @@ namespace POS.Reportes
             this.label5.TabIndex = 26;
             this.label5.Text = "Hasta";
             // 
-            // radioButton1
+            // tabPage2
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(140, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(59, 18);
-            this.radioButton1.TabIndex = 19;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Credito";
-            this.radioButton1.UseCompatibleTextRendering = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1193, 640);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cbListaPrecio
+            // cbTipoDocumento
             // 
-            this.cbListaPrecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbListaPrecio.FormattingEnabled = true;
-            this.cbListaPrecio.Location = new System.Drawing.Point(11, 164);
-            this.cbListaPrecio.Name = "cbListaPrecio";
-            this.cbListaPrecio.Size = new System.Drawing.Size(199, 21);
-            this.cbListaPrecio.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Tipo documento";
+            this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoDocumento.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Location = new System.Drawing.Point(17, 173);
+            this.cbTipoDocumento.Name = "cbTipoDocumento";
+            this.cbTipoDocumento.Size = new System.Drawing.Size(194, 38);
+            this.cbTipoDocumento.TabIndex = 51;
             // 
             // wndReportes
             // 
@@ -338,6 +342,7 @@ namespace POS.Reportes
             this.ClientSize = new System.Drawing.Size(1203, 661);
             this.Controls.Add(this.tabControl1);
             this.Name = "wndReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "wndReporteVentasPorPeriodo";
             this.Load += new System.EventHandler(this.wndReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
@@ -365,15 +370,15 @@ namespace POS.Reportes
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbListaPrecio;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox gbEstado;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton rbActivo;
-        private System.Windows.Forms.RadioButton rbInactivo;
+        private System.Windows.Forms.RadioButton rbCredito;
+        private System.Windows.Forms.RadioButton rbEfectivo;
+        private System.Windows.Forms.RadioButton rbDebito;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbTipoDocumento;
     }
 }

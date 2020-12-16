@@ -1,4 +1,5 @@
 ﻿using POS.DBModel;
+using POS.Reportes.Modelo;
 using POS.Utilidades;
 using POS.Ventas.Modelo;
 using System;
@@ -63,6 +64,16 @@ namespace POS.Ventas.Controlador
             r = mVenta.TRAER_MAX_ID_VENTA();
             return r;
 
+        }
+
+
+
+        public respuesta traerVentasXperiodo(DateTime _desde,DateTime _hasta, int _tipoDocumento, int _metodoPago)
+        {
+            respuesta r;
+            ventasXperiodo ventasXperiodo = new ventasXperiodo();
+            r = ventasXperiodo.traerVentasXperiodo(_desde,_hasta,_tipoDocumento,_metodoPago);
+            return r;
         }
     }
 }

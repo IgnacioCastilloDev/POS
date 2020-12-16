@@ -185,6 +185,7 @@
     <Compile Include="Login\Vista\wndLogin.Designer.cs">
       <DependentUpon>wndLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Modelo\ventasXperiodo.cs" />
     <Compile Include="Reportes\wndReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +348,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Login\Modelo\" />
+    <Folder Include="Reportes\Controlador\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBModel\Modelo.Context.tt">
