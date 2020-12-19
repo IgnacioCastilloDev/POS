@@ -29,19 +29,13 @@ namespace POS.Reportes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigobarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbEstado = new System.Windows.Forms.GroupBox();
@@ -53,46 +47,65 @@ namespace POS.Reportes
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.pbProgreso = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblEnvios = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCorrectos = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtTotalRecaudado = new System.Windows.Forms.TextBox();
+            this.VID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metodopago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbEstado.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
             this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeight = 50;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.codigobarra,
-            this.descripcion,
-            this.stock,
-            this.precio,
-            this.idCategoria});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvData.DefaultCellStyle = dataGridViewCellStyle6;
+            this.VID,
+            this.AID,
+            this.fecha,
+            this.nombrecajero,
+            this.nombrecaja,
+            this.metodopago,
+            this.documento,
+            this.total_venta});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.EnableHeadersVisualStyles = false;
             this.dgvData.Location = new System.Drawing.Point(470, 24);
             this.dgvData.Margin = new System.Windows.Forms.Padding(5);
@@ -102,66 +115,8 @@ namespace POS.Reportes
             this.dgvData.RowHeadersWidth = 62;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(664, 589);
+            this.dgvData.Size = new System.Drawing.Size(1062, 560);
             this.dgvData.TabIndex = 14;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.id.Width = 35;
-            // 
-            // codigobarra
-            // 
-            this.codigobarra.DataPropertyName = "codigobarra";
-            this.codigobarra.HeaderText = "FECHA";
-            this.codigobarra.Name = "codigobarra";
-            this.codigobarra.ReadOnly = true;
-            this.codigobarra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.codigobarra.Width = 172;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "TOTAL VENTA";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.descripcion.Width = 172;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "CAJERO";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // precio
-            // 
-            this.precio.DataPropertyName = "precio";
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
-            this.precio.DefaultCellStyle = dataGridViewCellStyle5;
-            this.precio.HeaderText = "METODO PAGO";
-            this.precio.Name = "precio";
-            this.precio.ReadOnly = true;
-            this.precio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.precio.Width = 172;
-            // 
-            // idCategoria
-            // 
-            this.idCategoria.DataPropertyName = "idCategoria";
-            this.idCategoria.HeaderText = "DOCUMENTO";
-            this.idCategoria.Name = "idCategoria";
-            this.idCategoria.ReadOnly = true;
-            this.idCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.idCategoria.Visible = false;
             // 
             // tabControl1
             // 
@@ -170,19 +125,21 @@ namespace POS.Reportes
             this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1164, 650);
+            this.tabControl1.Size = new System.Drawing.Size(1677, 737);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtTotalRecaudado);
+            this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.dgvData);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1156, 624);
+            this.tabPage1.Size = new System.Drawing.Size(1669, 711);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Por periodo";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
@@ -203,6 +160,16 @@ namespace POS.Reportes
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busqueda";
             // 
+            // cbTipoDocumento
+            // 
+            this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoDocumento.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.cbTipoDocumento.FormattingEnabled = true;
+            this.cbTipoDocumento.Location = new System.Drawing.Point(17, 173);
+            this.cbTipoDocumento.Name = "cbTipoDocumento";
+            this.cbTipoDocumento.Size = new System.Drawing.Size(194, 38);
+            this.cbTipoDocumento.TabIndex = 51;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -215,9 +182,9 @@ namespace POS.Reportes
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(301, 35);
+            this.btnBuscar.Location = new System.Drawing.Point(238, 169);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(86, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(154, 42);
             this.btnBuscar.TabIndex = 43;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -320,51 +287,175 @@ namespace POS.Reportes
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1193, 640);
+            this.tabPage2.Size = new System.Drawing.Size(1669, 711);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cbTipoDocumento
+            // statusStrip1
             // 
-            this.cbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipoDocumento.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
-            this.cbTipoDocumento.FormattingEnabled = true;
-            this.cbTipoDocumento.Location = new System.Drawing.Point(17, 173);
-            this.cbTipoDocumento.Name = "cbTipoDocumento";
-            this.cbTipoDocumento.Size = new System.Drawing.Size(194, 38);
-            this.cbTipoDocumento.TabIndex = 51;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pbProgreso,
+            this.toolStripStatusLabel1,
+            this.lblEnvios,
+            this.toolStripStatusLabel2,
+            this.lblCorrectos});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 752);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1790, 22);
+            this.statusStrip1.TabIndex = 36;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // pbProgreso
+            // 
+            this.pbProgreso.Maximum = 2;
+            this.pbProgreso.Name = "pbProgreso";
+            this.pbProgreso.Size = new System.Drawing.Size(100, 16);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(93, 17);
+            this.toolStripStatusLabel1.Text = "Estado del envio";
+            // 
+            // lblEnvios
+            // 
+            this.lblEnvios.Name = "lblEnvios";
+            this.lblEnvios.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblCorrectos
+            // 
+            this.lblCorrectos.Name = "lblCorrectos";
+            this.lblCorrectos.Size = new System.Drawing.Size(0, 17);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label22.Location = new System.Drawing.Point(834, 592);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(211, 30);
+            this.label22.TabIndex = 43;
+            this.label22.Text = "TOTAL RECAUDADO";
+            // 
+            // txtTotalRecaudado
+            // 
+            this.txtTotalRecaudado.BackColor = System.Drawing.SystemColors.Info;
+            this.txtTotalRecaudado.Font = new System.Drawing.Font("Arial Narrow", 18F);
+            this.txtTotalRecaudado.Location = new System.Drawing.Point(1085, 587);
+            this.txtTotalRecaudado.MaxLength = 50;
+            this.txtTotalRecaudado.Name = "txtTotalRecaudado";
+            this.txtTotalRecaudado.Size = new System.Drawing.Size(447, 35);
+            this.txtTotalRecaudado.TabIndex = 44;
+            // 
+            // VID
+            // 
+            this.VID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.VID.DataPropertyName = "VID";
+            this.VID.HeaderText = "ID";
+            this.VID.MinimumWidth = 8;
+            this.VID.Name = "VID";
+            this.VID.ReadOnly = true;
+            this.VID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.VID.Width = 35;
+            // 
+            // AID
+            // 
+            this.AID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.AID.DataPropertyName = "AID";
+            this.AID.FillWeight = 141.6185F;
+            this.AID.HeaderText = "AID";
+            this.AID.Name = "AID";
+            this.AID.ReadOnly = true;
+            this.AID.Width = 65;
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fecha";
+            this.fecha.FillWeight = 92.3756F;
+            this.fecha.HeaderText = "FECHA";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombrecajero
+            // 
+            this.nombrecajero.DataPropertyName = "nombrecajero";
+            this.nombrecajero.FillWeight = 92.3756F;
+            this.nombrecajero.HeaderText = "CAJERO";
+            this.nombrecajero.Name = "nombrecajero";
+            this.nombrecajero.ReadOnly = true;
+            this.nombrecajero.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombrecaja
+            // 
+            this.nombrecaja.DataPropertyName = "nombrecaja";
+            this.nombrecaja.FillWeight = 92.3756F;
+            this.nombrecaja.HeaderText = "CAJA";
+            this.nombrecaja.Name = "nombrecaja";
+            this.nombrecaja.ReadOnly = true;
+            // 
+            // metodopago
+            // 
+            this.metodopago.DataPropertyName = "metodopago";
+            this.metodopago.FillWeight = 92.3756F;
+            this.metodopago.HeaderText = "METODO PAGO";
+            this.metodopago.Name = "metodopago";
+            this.metodopago.ReadOnly = true;
+            // 
+            // documento
+            // 
+            this.documento.DataPropertyName = "documento";
+            this.documento.FillWeight = 96.50349F;
+            this.documento.HeaderText = "DOCUMENTO";
+            this.documento.Name = "documento";
+            this.documento.ReadOnly = true;
+            this.documento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // total_venta
+            // 
+            this.total_venta.DataPropertyName = "total_venta";
+            this.total_venta.FillWeight = 92.3756F;
+            this.total_venta.HeaderText = "TOTAL VENTA";
+            this.total_venta.Name = "total_venta";
+            this.total_venta.ReadOnly = true;
+            this.total_venta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // wndReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 661);
+            this.ClientSize = new System.Drawing.Size(1790, 774);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Name = "wndReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "wndReporteVentasPorPeriodo";
+            this.Text = "Reportes de ventas";
             this.Load += new System.EventHandler(this.wndReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.gbEstado.ResumeLayout(false);
             this.gbEstado.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         public System.Windows.Forms.DataGridView dgvData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigobarra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoria;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -380,5 +471,21 @@ namespace POS.Reportes
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbTipoDocumento;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar pbProgreso;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblEnvios;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lblCorrectos;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtTotalRecaudado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrecajero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombrecaja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn metodopago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total_venta;
     }
 }

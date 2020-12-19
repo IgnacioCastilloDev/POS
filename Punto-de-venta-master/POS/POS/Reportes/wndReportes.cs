@@ -1,4 +1,5 @@
-﻿using POS.Utilidades;
+﻿using POS.Reportes.Modelo;
+using POS.Utilidades;
 using POS.Ventas.Controlador;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace POS.Reportes
 {
     public partial class wndReportes : Form
     {
-        public int metodoPago;
+        public int tMetodoPago;
         public wndReportes()
         {
             InitializeComponent();
@@ -29,15 +30,15 @@ namespace POS.Reportes
         {
             if (rbCredito.Checked == true)
             {
-                metodoPago = 3;
+                tMetodoPago = 3;
             }
             if (rbDebito.Checked == true)
             {
-                metodoPago = 2;
+                tMetodoPago = 2;
             }
             if (rbEfectivo.Checked == true)
             {
-                metodoPago = 1;
+                tMetodoPago = 1;
             }
         }
         void refrescarComboMetodoPago()
@@ -52,7 +53,7 @@ namespace POS.Reportes
             cbTipoDocumento.ValueMember = "id";
 
         }
-
+       
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
@@ -60,11 +61,28 @@ namespace POS.Reportes
             respuesta rVenta;
             ventaController vc = new ventaController();
 
-            rVenta = vc.traerVentasXperiodo(dtpDesde.Value,dtpHasta.Value,Convert.ToInt32(cbTipoDocumento.SelectedValue),metodoPago);
+           
+
+
+            rVenta = vc.traerVentasXperiodo(dtpDesde.Value,dtpHasta.Value,Convert.ToInt32(cbTipoDocumento.SelectedValue),tMetodoPago);
             if (rVenta.status)
             {
+                if (((List<ventasXperiodo>)rVenta.Data).Count == 0 )
+                {
+                    MessageBox.Show("No se encontraron registros");
+                    dgvData.DataSource = null;
 
-                MessageBox.Show("ssd");
+                }
+                else
+                {
+
+                   
+                   
+                    dgvData.AutoGenerateColumns = false;
+                    dgvData.DataSource = rVenta.Data;
+                   
+                }
+
             }
         }
 
@@ -76,6 +94,11 @@ namespace POS.Reportes
         private void tabPage1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

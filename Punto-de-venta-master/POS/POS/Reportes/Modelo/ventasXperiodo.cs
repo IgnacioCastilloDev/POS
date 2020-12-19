@@ -19,6 +19,7 @@ namespace POS.Reportes.Modelo
         public string documento { get; set; }
         public string nombrecaja { get; set; }
         public string nombrecajero { get; set; }
+     
 
 
 
@@ -38,7 +39,7 @@ namespace POS.Reportes.Modelo
                     {
 
                         string sql = "SELECT V.ID AS VID,A.id AS AID,V.fecha,V.total_venta,mp.nombre " +
-                                    "as metodopago,TD.nombre as documento,C.nombre as nombrecaja,U.nombre as nombrecajero " +
+                                    "as metodopago,TD.nombre as documento,C.nombre as nombrecaja,U.nombre as nombrecajero " +              
                                     "FROM VENTA V INNER JOIN METODO_PAGO MP ON MP.ID = V.fk_id_metodoPago " +
                                     "INNER JOIN APERTURA A ON A.id =V.fk_id_apertura " +
                                     "INNER JOIN USUARIO U ON U.id = a.fk_id_usuario " +
@@ -88,5 +89,7 @@ namespace POS.Reportes.Modelo
 
             return r;
         }
+
+     
     }
 }
