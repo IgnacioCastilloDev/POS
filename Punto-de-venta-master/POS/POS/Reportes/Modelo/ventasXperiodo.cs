@@ -19,6 +19,7 @@ namespace POS.Reportes.Modelo
         public string documento { get; set; }
         public string nombrecaja { get; set; }
         public string nombrecajero { get; set; }
+        public int totalEntrePeriodo { get; set; }
      
 
 
@@ -86,6 +87,62 @@ namespace POS.Reportes.Modelo
             {
                 r = new respuesta(false, "CONEXION CON LA DB RECHAZADA", e.Message.ToString());
             }
+
+            return r;
+        }
+
+
+
+        public respuesta traerTotalXperiodo(DateTime _desde,DateTime _hasta, int _tipoDocumento, int _metodoPago)
+        {
+
+            respuesta r;
+            Object objDatos;
+            try
+            {
+                using (POS.DBModel.negocioEntities db = new POS.DBModel.negocioEntities())
+                {
+
+
+                    try
+                    {
+                        string sql = "select SUM(V.total_venta) as totalEntrePeriodo from VENTA V  INNER JOIN TIPO_DOCUMENTO TD ON TD.id = V.fk_id_tipo_documento " +
+                                      "INNER JOIN METODO_PAGO MP ON MP.ID = V.fk_id_metodoPago where v.fecha >= @Desde and v.fecha <= @Hasta and TD.id = @TipoDoc and MP.id = @MetoPago";
+
+                        SqlParameter sqlDesde = new SqlParameter("@Desde", System.Data.SqlDbType.DateTime);
+                        sqlDesde.Value = _desde.Date;
+                        SqlParameter sqlHasta = new SqlParameter("@Hasta", System.Data.SqlDbType.DateTime);
+                        sqlHasta.Value = _hasta.Date;
+                        SqlParameter sqlTipoDoc = new SqlParameter("@TipoDoc", System.Data.SqlDbType.Int);
+                        sqlTipoDoc.Value = _tipoDocumento;
+                        SqlParameter sqlMetoPago = new SqlParameter("@MetoPago", System.Data.SqlDbType.Int);
+                        sqlMetoPago.Value = _metodoPago;
+
+
+                        SqlParameter[] parametros = new SqlParameter[4] { sqlDesde,sqlHasta,sqlTipoDoc,sqlMetoPago};
+
+                        objDatos = db.Database.SqlQuery<ventasXperiodo>(sql, parametros).FirstOrDefault();
+
+                        if (objDatos != null)
+                        {
+                            r = new respuesta(true, "APERTURA ENCONTRADA", objDatos);
+                        }
+                        else
+                        {
+                            r = new respuesta(false, "APERTURA NO ENCONTRADO");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        r = new respuesta(false, "ERROR AL TRAER APERTURA", ex.Message.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                r = new respuesta(false, "CONEXION CON LA DB RECHAZADA", e.Message.ToString());
+            }
+
 
             return r;
         }

@@ -1,4 +1,6 @@
-﻿using POS.Reportes.Modelo;
+﻿using POS.Entidades;
+using POS.Entidades.Controlador;
+using POS.Reportes.Modelo;
 using POS.Utilidades;
 using POS.Ventas.Controlador;
 using System;
@@ -21,9 +23,22 @@ namespace POS.Reportes
             InitializeComponent();
         }
 
+        void combo()
+        {
+            respuesta r;
+            movimientoController mc = new movimientoController();
+            r = mc.listarMovimientoXNombre();
+            cbTipoMovimiento.DataSource = r.Data;
+            cbTipoMovimiento.DisplayMember = "nombre";
+            cbTipoMovimiento.ValueMember = "id";
+
+        }
         private void wndReportes_Load(object sender, EventArgs e)
         {
             refrescarComboMetodoPago();
+            combo();
+
+
         }
 
         public void  checkRadioButton()
@@ -59,6 +74,7 @@ namespace POS.Reportes
 
             checkRadioButton();
             respuesta rVenta;
+            respuesta rTotalVenta;
             ventaController vc = new ventaController();
 
            
@@ -70,14 +86,20 @@ namespace POS.Reportes
                 if (((List<ventasXperiodo>)rVenta.Data).Count == 0 )
                 {
                     MessageBox.Show("No se encontraron registros");
+                    txtTotalRecaudado.Text = "";
                     dgvData.DataSource = null;
 
                 }
                 else
                 {
+                    rTotalVenta = vc.traerTotalXperiodo(dtpDesde.Value, dtpHasta.Value, Convert.ToInt32(cbTipoDocumento.SelectedValue), tMetodoPago);
+                    if (rTotalVenta.status)
+                    {
+                        ventasXperiodo totalVenta;
 
-                   
-                   
+                        totalVenta = (ventasXperiodo)rTotalVenta.Data;
+                        txtTotalRecaudado.Text = Convert.ToString(totalVenta.totalEntrePeriodo);
+                    }
                     dgvData.AutoGenerateColumns = false;
                     dgvData.DataSource = rVenta.Data;
                    
@@ -96,7 +118,23 @@ namespace POS.Reportes
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            respuesta rMovimientos;
+            detalleMovimiento dm = new detalleMovimiento();
+            rMovimientos = dm.traerMovimientosDiarios(dtpDesde.Value, dtpHasta.Value, Convert.ToInt32(cbTipoMovimiento.SelectedValue));
+            if (rMovimientos.status)
+            {
+                dgvDataMovimientos.AutoGenerateColumns = false;
+                dgvDataMovimientos.DataSource = rMovimientos.Data;
+            }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }

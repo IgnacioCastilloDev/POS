@@ -31,6 +31,7 @@ namespace POS.DBModel
         public virtual DbSet<CIERRE> CIERRE { get; set; }
         public virtual DbSet<DETALLE_MOVIMIENTO> DETALLE_MOVIMIENTO { get; set; }
         public virtual DbSet<DETALLE_VENTA> DETALLE_VENTA { get; set; }
+        public virtual DbSet<GABETA> GABETA { get; set; }
         public virtual DbSet<METODO_PAGO> METODO_PAGO { get; set; }
         public virtual DbSet<MOVIMIENTO> MOVIMIENTO { get; set; }
         public virtual DbSet<PRODUCTO> PRODUCTO { get; set; }

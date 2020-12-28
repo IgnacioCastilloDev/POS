@@ -120,6 +120,9 @@
     <Compile Include="DBModel\DETALLE_VENTA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\GABETA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\METODO_PAGO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -169,6 +172,7 @@
     <Compile Include="Entidades\Controlador\productoController.cs" />
     <Compile Include="Entidades\Controlador\promocionController.cs" />
     <Compile Include="Entidades\Modelo\aperturaModel.cs" />
+    <Compile Include="Entidades\Modelo\detalleMovimientoModel.cs" />
     <Compile Include="Entidades\Modelo\productoModel.cs" />
     <Compile Include="Entidades\Controlador\movimientoController.cs" />
     <Compile Include="Entidades\Vista\wndProducto.cs">

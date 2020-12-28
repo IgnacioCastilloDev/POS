@@ -75,5 +75,13 @@ namespace POS.Ventas.Controlador
             r = ventasXperiodo.traerVentasXperiodo(_desde,_hasta,_tipoDocumento,_metodoPago);
             return r;
         }
+
+        public respuesta traerTotalXperiodo(DateTime _desde, DateTime _hasta, int _tipoDocumento, int _metodoPago)
+        {
+            respuesta r;
+            ventasXperiodo ventasXperiodo = new ventasXperiodo();
+            r = ventasXperiodo.traerTotalXperiodo(_desde, _hasta, _tipoDocumento, _metodoPago);
+            return r;
+        }
     }
 }

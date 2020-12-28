@@ -263,6 +263,8 @@ namespace POS.Ventas.Vista
 
         }
 
+
+
         public void actualizarCabeceraVenta()
         {
             respuesta rVenta;
@@ -308,7 +310,7 @@ namespace POS.Ventas.Vista
         }
         private void wndVentas_Load(object sender, EventArgs e)
         {
-
+            ICollection<KeyValuePair<int, string>> a = new SortedList<int, string>();
             refrescarComboMetodoPago();
 
             StartTimer();

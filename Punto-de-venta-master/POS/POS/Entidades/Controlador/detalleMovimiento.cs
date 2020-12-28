@@ -1,4 +1,5 @@
 ﻿using POS.DBModel;
+using POS.Entidades.Modelo;
 using POS.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,16 @@ namespace POS.Entidades.Controlador
 
             return r;
 
+        }
+
+        public respuesta traerMovimientosDiarios(DateTime _desde,DateTime _hasta,int _idMov)
+        {
+            respuesta r;
+            detalleMovimientoModel dmm = new detalleMovimientoModel();
+            r = dmm.traerMovimientosDiarios(_desde,_hasta,_idMov);
+            return r;
+
+           
         }
     }
 }

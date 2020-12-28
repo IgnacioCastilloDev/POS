@@ -28,6 +28,7 @@ namespace POS.DBModel
         public string estado { get; set; }
         public Nullable<int> fk_id_usuario { get; set; }
         public Nullable<int> fk_id_caja { get; set; }
+        public Nullable<int> monto_apertura { get; set; }
     
         public virtual CAJA CAJA { get; set; }
         public virtual USUARIO USUARIO { get; set; }

@@ -31,9 +31,21 @@ namespace POS.Reportes
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.VID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metodopago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtTotalRecaudado = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,22 +65,31 @@ namespace POS.Reportes
             this.lblEnvios = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCorrectos = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtTotalRecaudado = new System.Windows.Forms.TextBox();
-            this.VID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecaja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metodopago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbTipoMovimiento = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnBuscarMovimientos = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvDataMovimientos = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbEstado.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataMovimientos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvData
@@ -118,6 +139,79 @@ namespace POS.Reportes
             this.dgvData.Size = new System.Drawing.Size(1062, 560);
             this.dgvData.TabIndex = 14;
             // 
+            // VID
+            // 
+            this.VID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.VID.DataPropertyName = "VID";
+            this.VID.HeaderText = "ID";
+            this.VID.MinimumWidth = 8;
+            this.VID.Name = "VID";
+            this.VID.ReadOnly = true;
+            this.VID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.VID.Width = 35;
+            // 
+            // AID
+            // 
+            this.AID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.AID.DataPropertyName = "AID";
+            this.AID.FillWeight = 141.6185F;
+            this.AID.HeaderText = "AID";
+            this.AID.Name = "AID";
+            this.AID.ReadOnly = true;
+            this.AID.Width = 65;
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fecha";
+            this.fecha.FillWeight = 92.3756F;
+            this.fecha.HeaderText = "FECHA";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombrecajero
+            // 
+            this.nombrecajero.DataPropertyName = "nombrecajero";
+            this.nombrecajero.FillWeight = 92.3756F;
+            this.nombrecajero.HeaderText = "CAJERO";
+            this.nombrecajero.Name = "nombrecajero";
+            this.nombrecajero.ReadOnly = true;
+            this.nombrecajero.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nombrecaja
+            // 
+            this.nombrecaja.DataPropertyName = "nombrecaja";
+            this.nombrecaja.FillWeight = 92.3756F;
+            this.nombrecaja.HeaderText = "CAJA";
+            this.nombrecaja.Name = "nombrecaja";
+            this.nombrecaja.ReadOnly = true;
+            // 
+            // metodopago
+            // 
+            this.metodopago.DataPropertyName = "metodopago";
+            this.metodopago.FillWeight = 92.3756F;
+            this.metodopago.HeaderText = "METODO PAGO";
+            this.metodopago.Name = "metodopago";
+            this.metodopago.ReadOnly = true;
+            // 
+            // documento
+            // 
+            this.documento.DataPropertyName = "documento";
+            this.documento.FillWeight = 96.50349F;
+            this.documento.HeaderText = "DOCUMENTO";
+            this.documento.Name = "documento";
+            this.documento.ReadOnly = true;
+            this.documento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // total_venta
+            // 
+            this.total_venta.DataPropertyName = "total_venta";
+            this.total_venta.FillWeight = 92.3756F;
+            this.total_venta.HeaderText = "TOTAL VENTA";
+            this.total_venta.Name = "total_venta";
+            this.total_venta.ReadOnly = true;
+            this.total_venta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -142,6 +236,28 @@ namespace POS.Reportes
             this.tabPage1.Text = "Por periodo";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // txtTotalRecaudado
+            // 
+            this.txtTotalRecaudado.BackColor = System.Drawing.SystemColors.Info;
+            this.txtTotalRecaudado.Font = new System.Drawing.Font("Arial Narrow", 18F);
+            this.txtTotalRecaudado.Location = new System.Drawing.Point(1085, 587);
+            this.txtTotalRecaudado.MaxLength = 50;
+            this.txtTotalRecaudado.Name = "txtTotalRecaudado";
+            this.txtTotalRecaudado.Size = new System.Drawing.Size(447, 35);
+            this.txtTotalRecaudado.TabIndex = 44;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label22.Location = new System.Drawing.Point(834, 592);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(211, 30);
+            this.label22.TabIndex = 43;
+            this.label22.Text = "TOTAL RECAUDADO";
             // 
             // groupBox2
             // 
@@ -284,12 +400,16 @@ namespace POS.Reportes
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.dgvDataMovimientos);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1669, 711);
             this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Retiros e Ingresos";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // statusStrip1
             // 
@@ -332,100 +452,197 @@ namespace POS.Reportes
             this.lblCorrectos.Name = "lblCorrectos";
             this.lblCorrectos.Size = new System.Drawing.Size(0, 17);
             // 
-            // label22
+            // groupBox1
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label22.Location = new System.Drawing.Point(834, 592);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(211, 30);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "TOTAL RECAUDADO";
+            this.groupBox1.Controls.Add(this.cbTipoMovimiento);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnBuscarMovimientos);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(18, 36);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(445, 228);
+            this.groupBox1.TabIndex = 42;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Busqueda";
             // 
-            // txtTotalRecaudado
+            // cbTipoMovimiento
             // 
-            this.txtTotalRecaudado.BackColor = System.Drawing.SystemColors.Info;
-            this.txtTotalRecaudado.Font = new System.Drawing.Font("Arial Narrow", 18F);
-            this.txtTotalRecaudado.Location = new System.Drawing.Point(1085, 587);
-            this.txtTotalRecaudado.MaxLength = 50;
-            this.txtTotalRecaudado.Name = "txtTotalRecaudado";
-            this.txtTotalRecaudado.Size = new System.Drawing.Size(447, 35);
-            this.txtTotalRecaudado.TabIndex = 44;
+            this.cbTipoMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoMovimiento.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold);
+            this.cbTipoMovimiento.FormattingEnabled = true;
+            this.cbTipoMovimiento.Location = new System.Drawing.Point(11, 109);
+            this.cbTipoMovimiento.Name = "cbTipoMovimiento";
+            this.cbTipoMovimiento.Size = new System.Drawing.Size(194, 38);
+            this.cbTipoMovimiento.TabIndex = 51;
             // 
-            // VID
+            // label2
             // 
-            this.VID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.VID.DataPropertyName = "VID";
-            this.VID.HeaderText = "ID";
-            this.VID.MinimumWidth = 8;
-            this.VID.Name = "VID";
-            this.VID.ReadOnly = true;
-            this.VID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.VID.Width = 35;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Tipo de movimiento";
             // 
-            // AID
+            // btnBuscarMovimientos
             // 
-            this.AID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.AID.DataPropertyName = "AID";
-            this.AID.FillWeight = 141.6185F;
-            this.AID.HeaderText = "AID";
-            this.AID.Name = "AID";
-            this.AID.ReadOnly = true;
-            this.AID.Width = 65;
+            this.btnBuscarMovimientos.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarMovimientos.Location = new System.Drawing.Point(221, 105);
+            this.btnBuscarMovimientos.Name = "btnBuscarMovimientos";
+            this.btnBuscarMovimientos.Size = new System.Drawing.Size(154, 42);
+            this.btnBuscarMovimientos.TabIndex = 43;
+            this.btnBuscarMovimientos.Text = "Buscar";
+            this.btnBuscarMovimientos.UseVisualStyleBackColor = true;
+            this.btnBuscarMovimientos.Click += new System.EventHandler(this.button1_Click);
             // 
-            // fecha
+            // label3
             // 
-            this.fecha.DataPropertyName = "fecha";
-            this.fecha.FillWeight = 92.3756F;
-            this.fecha.HeaderText = "FECHA";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 17);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Desde";
             // 
-            // nombrecajero
+            // dateTimePicker1
             // 
-            this.nombrecajero.DataPropertyName = "nombrecajero";
-            this.nombrecajero.FillWeight = 92.3756F;
-            this.nombrecajero.HeaderText = "CAJERO";
-            this.nombrecajero.Name = "nombrecajero";
-            this.nombrecajero.ReadOnly = true;
-            this.nombrecajero.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(11, 37);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(122, 25);
+            this.dateTimePicker1.TabIndex = 27;
             // 
-            // nombrecaja
+            // dateTimePicker2
             // 
-            this.nombrecaja.DataPropertyName = "nombrecaja";
-            this.nombrecaja.FillWeight = 92.3756F;
-            this.nombrecaja.HeaderText = "CAJA";
-            this.nombrecaja.Name = "nombrecaja";
-            this.nombrecaja.ReadOnly = true;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(151, 37);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(130, 25);
+            this.dateTimePicker2.TabIndex = 28;
             // 
-            // metodopago
+            // label4
             // 
-            this.metodopago.DataPropertyName = "metodopago";
-            this.metodopago.FillWeight = 92.3756F;
-            this.metodopago.HeaderText = "METODO PAGO";
-            this.metodopago.Name = "metodopago";
-            this.metodopago.ReadOnly = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(148, 16);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 17);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Hasta";
             // 
-            // documento
+            // dgvDataMovimientos
             // 
-            this.documento.DataPropertyName = "documento";
-            this.documento.FillWeight = 96.50349F;
-            this.documento.HeaderText = "DOCUMENTO";
-            this.documento.Name = "documento";
-            this.documento.ReadOnly = true;
-            this.documento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvDataMovimientos.AllowUserToAddRows = false;
+            this.dgvDataMovimientos.AllowUserToDeleteRows = false;
+            this.dgvDataMovimientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDataMovimientos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDataMovimientos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDataMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDataMovimientos.ColumnHeadersHeight = 50;
+            this.dgvDataMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDataMovimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
+            this.Column1,
+            this.Column5,
+            this.Column3,
+            this.Column4,
+            this.Column6,
+            this.Column7});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDataMovimientos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDataMovimientos.EnableHeadersVisualStyles = false;
+            this.dgvDataMovimientos.Location = new System.Drawing.Point(471, 36);
+            this.dgvDataMovimientos.Margin = new System.Windows.Forms.Padding(5);
+            this.dgvDataMovimientos.Name = "dgvDataMovimientos";
+            this.dgvDataMovimientos.ReadOnly = true;
+            this.dgvDataMovimientos.RowHeadersVisible = false;
+            this.dgvDataMovimientos.RowHeadersWidth = 62;
+            this.dgvDataMovimientos.RowTemplate.Height = 40;
+            this.dgvDataMovimientos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDataMovimientos.Size = new System.Drawing.Size(1062, 560);
+            this.dgvDataMovimientos.TabIndex = 41;
             // 
-            // total_venta
+            // Column2
             // 
-            this.total_venta.DataPropertyName = "total_venta";
-            this.total_venta.FillWeight = 92.3756F;
-            this.total_venta.HeaderText = "TOTAL VENTA";
-            this.total_venta.Name = "total_venta";
-            this.total_venta.ReadOnly = true;
-            this.total_venta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column2.DataPropertyName = "id";
+            this.Column2.FillWeight = 177.665F;
+            this.Column2.HeaderText = "ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 54;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "fecha";
+            this.Column1.FillWeight = 87.05584F;
+            this.Column1.HeaderText = "FECHA";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "nombreMov";
+            this.Column5.FillWeight = 87.05584F;
+            this.Column5.HeaderText = "MOVIMIENTO";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "monto";
+            this.Column3.FillWeight = 87.05584F;
+            this.Column3.HeaderText = "MONTO";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "motivo";
+            this.Column4.FillWeight = 87.05584F;
+            this.Column4.HeaderText = "MOTIVO";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "nombreCajero";
+            this.Column6.FillWeight = 87.05584F;
+            this.Column6.HeaderText = "CAJERO";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "nombreCaja";
+            this.Column7.FillWeight = 87.05584F;
+            this.Column7.HeaderText = "CAJA";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // wndReportes
             // 
@@ -446,8 +663,12 @@ namespace POS.Reportes
             this.groupBox2.PerformLayout();
             this.gbEstado.ResumeLayout(false);
             this.gbEstado.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataMovimientos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,5 +708,21 @@ namespace POS.Reportes
         private System.Windows.Forms.DataGridViewTextBoxColumn metodopago;
         private System.Windows.Forms.DataGridViewTextBoxColumn documento;
         private System.Windows.Forms.DataGridViewTextBoxColumn total_venta;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbTipoMovimiento;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBuscarMovimientos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DataGridView dgvDataMovimientos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

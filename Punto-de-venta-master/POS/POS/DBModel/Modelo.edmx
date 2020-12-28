@@ -15,6 +15,7 @@
           <Property Name="estado" Type="char" MaxLength="1" />
           <Property Name="fk_id_usuario" Type="int" />
           <Property Name="fk_id_caja" Type="int" />
+          <Property Name="monto_apertura" Type="int" />
         </EntityType>
         <EntityType Name="CAJA">
           <Key>
@@ -62,6 +63,12 @@
           <Property Name="cantidad" Type="int" />
           <Property Name="subtotal" Type="int" />
           <Property Name="fk_venta" Type="bigint" />
+        </EntityType>
+        <EntityType Name="GABETA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="METODO_PAGO">
           <Key>
@@ -296,6 +303,7 @@
           <EntitySet Name="CIERRE" EntityType="Self.CIERRE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLE_MOVIMIENTO" EntityType="Self.DETALLE_MOVIMIENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GABETA" EntityType="Self.GABETA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MOVIMIENTO" EntityType="Self.MOVIMIENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
@@ -369,6 +377,7 @@
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="fk_id_usuario" Type="Int32" />
           <Property Name="fk_id_caja" Type="Int32" />
+          <Property Name="monto_apertura" Type="Int32" />
           <NavigationProperty Name="CAJA" Relationship="Self.fk_APERTURA_CAJA" FromRole="APERTURA" ToRole="CAJA" />
           <NavigationProperty Name="USUARIO" Relationship="Self.fk_APERTURA_USUARIO" FromRole="APERTURA" ToRole="USUARIO" />
           <NavigationProperty Name="CIERRE" Relationship="Self.fk_CIERRE_APERTURA" FromRole="APERTURA" ToRole="CIERRE" />
@@ -428,6 +437,12 @@
           <Property Name="fk_venta" Type="Int64" />
           <NavigationProperty Name="PRODUCTO" Relationship="Self.fk_DETALLE_VENTA_PRODUCTO" FromRole="DETALLE_VENTA" ToRole="PRODUCTO" />
           <NavigationProperty Name="VENTA" Relationship="Self.fk_DETALLE_VENTA_VENTA" FromRole="DETALLE_VENTA" ToRole="VENTA" />
+        </EntityType>
+        <EntityType Name="GABETA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="METODO_PAGO">
           <Key>
@@ -674,6 +689,7 @@
           <EntitySet Name="CIERRE" EntityType="Self.CIERRE" />
           <EntitySet Name="DETALLE_MOVIMIENTO" EntityType="Self.DETALLE_MOVIMIENTO" />
           <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" />
+          <EntitySet Name="GABETA" EntityType="Self.GABETA" />
           <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" />
           <EntitySet Name="MOVIMIENTO" EntityType="Self.MOVIMIENTO" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
@@ -747,6 +763,7 @@
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="fk_id_usuario" ColumnName="fk_id_usuario" />
                 <ScalarProperty Name="fk_id_caja" ColumnName="fk_id_caja" />
+                <ScalarProperty Name="monto_apertura" ColumnName="monto_apertura" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -799,6 +816,13 @@
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="subtotal" ColumnName="subtotal" />
                 <ScalarProperty Name="fk_venta" ColumnName="fk_venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GABETA">
+            <EntityTypeMapping TypeName="negocioModel.GABETA">
+              <MappingFragment StoreEntitySet="GABETA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
